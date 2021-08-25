@@ -72,6 +72,7 @@ function _getDefaultNotes() {
             type: "note-txt",
             isPinned: true,
             info: {
+                title: "FS",
                 txt: "Fullstack Me Baby!"
             }
         },
@@ -80,7 +81,8 @@ function _getDefaultNotes() {
             type: "note-img",
             info: {
                 url: "https://cutt.ly/fWrCAJz",
-                title: "Bobi"
+                title: "Bobi",
+                txt: "OMG Bobi 😍"
             },
             style: {
                 backgroundColor: "#00d"
@@ -91,7 +93,9 @@ function _getDefaultNotes() {
             type: "note-video",
             info: {
                 url: "https://www.youtube.com/watch?v=e-OPyR_P7rU",
-                title: "Dog fails"
+                // src="https://www.youtube.com/embed/e-OPyR_P7rU"
+                title: "Dog fails",
+                txt: "LOLOLOL"
             },
             style: {
                 backgroundColor: "#00d"
@@ -101,7 +105,7 @@ function _getDefaultNotes() {
             id: utilService.makeId(),
             type: "note-todos",
             info: {
-                label: "Get my stuff together",
+                title: "Get my stuff together",
                 todos: [
                     { txt: "Driving liscence", doneAt: null },
                     { txt: "Coding power", doneAt: 187111111 }
@@ -110,3 +114,9 @@ function _getDefaultNotes() {
         }
     ]
 }
+
+// function urlToEmbd() {
+//     const str = "https://www.youtube.com/watch?v=1adfD9";
+//     const res = str.split("=");
+//     const embeddedUrl = "https://www.youtube.com/embed/"+res[1];
+// }
