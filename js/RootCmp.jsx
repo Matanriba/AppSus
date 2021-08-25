@@ -15,7 +15,7 @@ export function App() {
                 </Switch>
             </main>
             <footer>
-                footer
+                footeR
             </footer>
         </Router>
     )
