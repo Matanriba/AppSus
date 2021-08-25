@@ -14,6 +14,8 @@ export class MailDetails extends React.Component {
 
     loadMail = () => {
         const id = this.props.match.params.mailId
+        console.log(id)
+        mailService.setMailAsRead(id)
         mailService.getMailById(id)
             .then(mail => {
                 if (!mail) this.props.history.push('/mail/inbox')
@@ -21,11 +23,17 @@ export class MailDetails extends React.Component {
             })
     }
 
+    onBack = () => {
+        this.props.history.push(`/mail/${this.state.mail.status}`)
+      }
+
     render() {
         const { mail } = this.state
+        console.log(mail)
         if (!mail) return <div>Loading...</div>
         return (
             <article className='mail-details'>
+                <button className='back-btn' onClick={this.onBack}>Back</button>
                 <h1>{mail.from} </h1>
                 <h2>{mail.subject}</h2>
                 <h3>{mail.body}</h3>
