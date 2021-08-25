@@ -5,4 +5,5 @@
 .mail-app {
     font-family: sans-serif;
     justify-content: space-between;
+    gap: 5px;
 }

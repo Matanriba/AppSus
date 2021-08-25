@@ -5,10 +5,12 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    padding: 5px;
 }
 
 .mail-preview:hover {
-    background-color: rgb(175, 175, 175);
+    /* background-color: rgb(230, 230, 230); */
+    box-shadow: 0px -1px 2px 1px rgba(173, 173, 173, 0.75) inset;
 }
 
 .mail-preview.read {

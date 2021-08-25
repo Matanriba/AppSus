@@ -1,0 +1,10 @@
+.mail-nav {
+    border-right: 1px solid gray;
+    background-color: whitesmoke;
+    /* margin-top: 30px; */
+    gap: 20px;
+}
+
+.mail-nav>* {
+    padding: 20px;
+}

@@ -18,7 +18,7 @@ export class MailSearch extends React.Component {
         const { txt, isRead } = this.state.searchBy
 
         return (
-            <form className='mail-search'>
+            <form className='mail-search flex'>
                 <input type="text" name="txt" id="txt" value={txt} placeholder="Search Mail" onChange={this.handleChange} />
                 <select name="isRead" id="isRead" value={isRead} onChange={this.handleChange} >
                     <option value=''>All</option>

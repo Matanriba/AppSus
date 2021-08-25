@@ -1,6 +1,7 @@
 .mail-list {
+    width: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    margin-inline-end: 20px;
+    align-items: stretch;
+    /* margin-inline-start: 10px; */
 }

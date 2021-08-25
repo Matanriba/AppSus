@@ -1,0 +1,15 @@
+.mail-search {
+    align-self: center;
+    gap: 5px;
+}
+
+.mail-search input {
+    background-color: rgb(243, 243, 243);
+    border-radius: 5px;
+    width: 500px;
+    padding: 10px;
+}
+
+.mail-search select {
+    border-radius: 5px;
+}
