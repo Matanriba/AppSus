@@ -5,7 +5,7 @@ import { AppHeader } from "./cmps/app-header.jsx"
 import { Home } from "./pages/app-home.jsx"
 import { About } from "./pages/app-about.jsx"
 import { MailApp } from "./apps/mail/pages/mail-app.jsx"
-import { KeepApp } from "./apps/keep/pages/keep-app.jsx"
+import { NoteApp } from "./apps/keep/pages/note-app.jsx"
 import { AppFooter } from "./cmps/app-foorer.jsx"
 
 export function App() {
@@ -14,7 +14,7 @@ export function App() {
             <AppHeader />
             <main>
                 <Switch>
-                    <Route path="/keep" component={KeepApp}/>
+                    <Route path="/keep" component={NoteApp}/>
                     <Route path="/mail" component={MailApp}/>
                     <Route path="/about" component={About}/>
                     <Route exact path="/" component={Home}/>
