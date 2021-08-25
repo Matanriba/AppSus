@@ -3,7 +3,8 @@ import { storageService } from "../../../services/storage.service.js";
 
 export const mailService = {
     query,
-    getMailById
+    getMailById,
+    setMailAsRead
 }
 
 const KEY = 'mailDB'
@@ -13,7 +14,7 @@ const loggedinUser = {
     fullname: 'Mahatma Appsus'
 }
 
-let gMails = [{
+let gMails = storageService.loadFromStorage(KEY) || [{
         id: 'e101',
         from: 'Morty Smith',
         subject: 'Miss you!',
@@ -52,7 +53,7 @@ let gMails = [{
         from: 'Beth Smith',
         subject: 'Holy Crap!',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox',
@@ -60,11 +61,25 @@ let gMails = [{
     }
 ]
 
-
 function query(criteria) {
-    const { status, txt } = criteria
-    const mailsToDisplay = gMails.filter(mail => mail.status === status)
+    const { status, txt, isRead } = criteria
+    console.log('isRead: ', isRead)
+    let mailsToDisplay = gMails.filter(mail => {
+        return mail.status === status &&
+            (mail.body.toLowerCase().includes(txt.toLowerCase()) ||
+                mail.subject.toLowerCase().includes(txt.toLowerCase()) ||
+                mail.from.toLowerCase().includes(txt.toLowerCase()))
+    })
+    if (isRead === 'read') mailsToDisplay = mailsToDisplay.filter(mail => mail.isRead)
+    else if (isRead === 'unread') mailsToDisplay = mailsToDisplay.filter(mail => !mail.isRead)
     return Promise.resolve(mailsToDisplay)
+
+}
+
+function setMailAsRead(mailId) {
+    const mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    gMails[mailIdx].isRead = true
+    _saveMailsToStorage()
 }
 
 function _createMail(subject, body, to) {
@@ -74,15 +89,23 @@ function _createMail(subject, body, to) {
         body,
         isRead: false,
         sentAt: Date.now(),
-        to
+        to,
+        status: 'sent'
     }
 }
 
+function addMail(mailToAdd) {
+    const mail = _createMail(mailToAdd.subject, mailToAdd.body, mailToAdd.to)
+    gMails.unshift(mail)
+    _saveMailsToStorage()
+    return Promise.resolve()
+}
+
 function getMailById(mailId) {
-    const mail = gMails.findIndex(mail => mail.id === mailId)
+    const mail = gMails.find(mail => mail.id === mailId)
     return Promise.resolve(mail)
 }
 
-function _saveCarsToStorage() {
+function _saveMailsToStorage() {
     storageService.saveToStorage(KEY, gMails)
 }
