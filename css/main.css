@@ -8,3 +8,9 @@
 
 @import url(./cmps/app-home.css);
 @import url(./cmps/header.css);
+
+/* MAIL APP  */
+
+@import url(./apps/mail/pages/mail-app.css);
+@import url(./apps/mail/cmps/mail-preview.css);
+@import url(./apps/mail/cmps/mail-list.css);

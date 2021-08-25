@@ -1,0 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+.mail-app {
+    font-family: sans-serif;
+    justify-content: space-between;
+}

@@ -1,5 +1,5 @@
 const Router = ReactRouterDOM.HashRouter
-const { Route, Switch } = ReactRouterDOM
+const { Route, Switch, Redirect } = ReactRouterDOM
 
 import { AppHeader } from "./cmps/app-header.jsx"
 import { Home } from "./pages/app-home.jsx"

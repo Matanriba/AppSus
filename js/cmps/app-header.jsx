@@ -6,7 +6,7 @@ export function AppHeader() {
             <Link to="/"><h1>AppSus.</h1></Link>
             <nav>
                 <NavLink to="/about" >About</NavLink>
-                <NavLink to="/mail" >Mail</NavLink>
+                <NavLink to="/mail/inbox" >Mail</NavLink>
                 <NavLink to="/keep" >Keep</NavLink>
             </nav>
         </header>

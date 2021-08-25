@@ -1,0 +1,15 @@
+.mail-preview {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mail-preview:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+.read {
+    background-color: lightgray;
+}
