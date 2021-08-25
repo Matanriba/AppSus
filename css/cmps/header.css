@@ -1,0 +1,8 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:not(:last-child) {
+    margin-inline-end: 20px;
+}
