@@ -6,7 +6,8 @@ export const mailService = {
     getMailById,
     setMailAsRead,
     removeMail,
-    toggleReadMailPreview
+    toggleReadMailPreview,
+    addMail
 }
 
 const KEY = 'mailDB'
@@ -127,17 +128,18 @@ function toggleReadMailPreview(mailId) {
 function _createMail(subject, body, to) {
     return {
         id: utilService.makeId(),
+        from: loggedinUser.fullname,
         subject,
         body,
-        isRead: false,
+        isRead: true,
         sentAt: Date.now(),
         to,
         status: 'sent'
     }
 }
 
-function addMail(mailToAdd) {
-    const mail = _createMail(mailToAdd.subject, mailToAdd.body, mailToAdd.to)
+function addMail(mailData) {
+    const mail = _createMail(mailData.subject, mailData.body, mailData.to)
     gMails.unshift(mail)
     _saveMailsToStorage()
     return Promise.resolve()

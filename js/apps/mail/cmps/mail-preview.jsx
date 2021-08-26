@@ -11,7 +11,7 @@ export function MailPreview({ mail, onRemoveMail, onToggleIsRead }) {
                 <p>{mail.sentAt}</p>
             </Link>
             <div className="preview-btns">
-            <button onClick={() => onRemoveMail(mail.id, event)}>🗑</button>
+            <button onClick={() => onRemoveMail(mail.id)}>🗑</button>
             <button onClick={() => onToggleIsRead(mail.id)}>✉</button>
             </div>
         </article>

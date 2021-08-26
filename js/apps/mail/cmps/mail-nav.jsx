@@ -1,8 +1,11 @@
+import { MailCompose } from "./mail-compose.jsx"
+
 const { Link } = ReactRouterDOM
 
 export function MailNav({ setCriteriaStatus }) {
     return (
         <nav className="mail-nav flex column">
+            <MailCompose />
             <Link to="/mail/inbox" onClick={() => { setCriteriaStatus('inbox') }}>Inbox</Link>
             <Link to="/mail/sent" onClick={() => { setCriteriaStatus('sent') }}>Sent</Link>
             <Link to="/mail/starred">Starred</Link>

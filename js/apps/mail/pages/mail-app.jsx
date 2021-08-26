@@ -45,8 +45,7 @@ export class MailApp extends React.Component {
         this.setState(prevState => ({ criteria: { ...prevState.criteria, status } }))
     }
 
-    onRemoveMail = (mailId, ev) => {
-        ev.stopPropagation()
+    onRemoveMail = (mailId) => {
         mailService.removeMail(mailId)
         this.loadMails()
     }
@@ -58,19 +57,17 @@ export class MailApp extends React.Component {
 
     render() {
         const { mails } = this.state
-
+        const {location} = this.props
+        console.log('location:', location)
         return (
             <section className='mail-app flex column'>
                 <MailSearch onSetSearch={this.onSetSearch} />
-                <MailCompose/>
                 <div className="mail-main flex">
                 <MailNav setCriteriaStatus={this.setCriteriaStatus} />
                 <Switch>
-                    <Route exact path="/mail/inbox" render={() => <MailList onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
-                    <Route exact path="/mail/sent" render={() => <MailList onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
-                    <Route exact path="/mail/starred" render={() => <MailList onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
-                    <Route exact path="/mail/trash" render={() => <MailList onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
-                    <Route exact path="/mail/:status/:mailId" render={(props) => <MailDetails {...props} />} />
+                    <Route path="/mail/:status/:mailId" render={(props) => <MailDetails {...props} />} />
+                    {/* <Route path={`${location.pathname}/:mailId`} render={(props) => <MailDetails {...props} />} /> */}
+                    <Route path={`${location.pathname}`} render={() => <MailList onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
                 </Switch>
                 </div>
             </section>
