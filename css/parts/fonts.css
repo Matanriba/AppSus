@@ -1,4 +1,11 @@
 @font-face {
+    font-family: Open-Sans;
+    src: url(../../assets/fonts/Open-Sans/OpenSans-Regular.ttf);
+}
+
+/* FONT AWESOME */
+
+@font-face {
     font-family: FA-S;
     src: url(../../assets/fonts/font-awesome/fa-solid-900.ttf);
 }

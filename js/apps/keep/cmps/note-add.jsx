@@ -43,17 +43,17 @@ export class NoteAdd extends React.Component {
             <form className="new-note">
                 {!isClicked && <input type='text' placeholder='Add new note...' onFocus={this.onToggleFormClicked} onBlur={this.onToggleFormClicked} />}
                 {isClicked &&
-                    <div>
+                    <React.Fragment>
                         <input type="text" name="title" placeholder="Add title" onChange={this.handleChange} />
+                        <input type="text" name="note-input" placeholder={`Enter ${this.getPlaceHolderTxt()}...`} onChange={this.handleChange} />
                         <div className="choose-note-type">
                             <button onClick={(ev) => this.onChangeNoteType(ev, 'note-txt')}>Txt</button>
                             <button onClick={(ev) => this.onChangeNoteType(ev, 'note-todos')}>List</button>
                             <button onClick={(ev) => this.onChangeNoteType(ev, 'note-img')}>Img</button>
                             <button onClick={(ev) => this.onChangeNoteType(ev, 'note-video')}>Vid</button>
                         </div>
-                        <input type="text" name="note-input" placeholder={`Enter ${this.getPlaceHolderTxt()}...`} onChange={this.handleChange} />
                         <button>Add note</button>
-                    </div>
+                    </React.Fragment>
                 }
             </form >
         )

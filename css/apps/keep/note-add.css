@@ -2,6 +2,14 @@
     width: 300px;
 }
 
+.new-note input[name=title] {
+    display: block;
+}
+
+.new-note > button {
+    display: block;
+}
+
 .choose-note-type {
     display: inline-block;
 }
