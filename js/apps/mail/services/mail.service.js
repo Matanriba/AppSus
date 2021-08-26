@@ -4,7 +4,9 @@ import { storageService } from "../../../services/storage.service.js";
 export const mailService = {
     query,
     getMailById,
-    setMailAsRead
+    setMailAsRead,
+    removeMail,
+    toggleReadMailPreview
 }
 
 const KEY = 'mailDB'
@@ -53,7 +55,40 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         from: 'Beth Smith',
         subject: 'Holy Crap!',
         body: 'Would love to catch up sometimes',
+        isRead: false,
+        sentAt: Date.now(),
+        to: 'momo@momo.com',
+        status: 'inbox',
+        isStarred: false
+    },
+    {
+        id: 'e105',
+        from: 'Beth Smithqwe',
+        subject: 'Holy Crap!',
+        body: 'Would love to catchasdasd up sometimes',
         isRead: true,
+        sentAt: Date.now(),
+        to: 'momo@momo.com',
+        status: 'inbox',
+        isStarred: false
+    },
+    {
+        id: 'e106',
+        from: 'Beth Smithdsa',
+        subject: 'Holy Crap!',
+        body: 'Would love tfsdfsdfo catch up sometimes',
+        isRead: false,
+        sentAt: Date.now(),
+        to: 'momo@momo.com',
+        status: 'inbox',
+        isStarred: false
+    },
+    {
+        id: 'e107',
+        from: 'Beth Smithasd',
+        subject: 'Holy Crap!',
+        body: 'Would losdfgsdfgve to catch up sometimes',
+        isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
         status: 'inbox',
@@ -78,7 +113,14 @@ function query(criteria) {
 
 function setMailAsRead(mailId) {
     const mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    if (!gMails[mailIdx] || gMails[mailIdx].isRead === true) return
     gMails[mailIdx].isRead = true
+    _saveMailsToStorage()
+}
+
+function toggleReadMailPreview(mailId) {
+    const mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    gMails[mailIdx].isRead = !gMails[mailIdx].isRead
     _saveMailsToStorage()
 }
 
@@ -99,6 +141,15 @@ function addMail(mailToAdd) {
     gMails.unshift(mail)
     _saveMailsToStorage()
     return Promise.resolve()
+}
+
+function removeMail(mailId) {
+    let mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    if (gMails[mailIdx].status === 'trash') {
+        gMails.splice(mailIdx, 1)
+        _saveMailsToStorage
+        return Promise.resolve()
+    } else gMails[mailIdx].status = 'trash'
 }
 
 function getMailById(mailId) {
