@@ -19,11 +19,11 @@ export function NotePreview({ note, onRemoveNote }) {
 
     return (
         <div className={`note ${note.type}`} >
+            {note.isPinned && <span>{'<Pinned>'}</span>}
             {note.info.title && <h3>{note.info.title}</h3>}
             {DyanmicNote(note)}
             {note.info.txt && <p>{note.info.txt}</p>}
             <div className="note-controls">
-                {note.isPinned && <span>{'<Pinned>'}</span>}
                 <span className={`icon ${note.type}`}></span>
                 <button onClick={() => onRemoveNote(note.id)}>remove</button>
             </div>

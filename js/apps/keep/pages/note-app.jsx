@@ -1,4 +1,5 @@
 import { NoteList } from '../cmps/note-list.jsx'
+import { NoteAdd } from '../cmps/note-add.jsx';
 import { noteService } from '../services/note.service.js'
 
 export class NoteApp extends React.Component {
@@ -54,6 +55,7 @@ export class NoteApp extends React.Component {
             <section>
                 <div>A search + filter bar...</div>
                 <div>A new note widget...</div>
+                <NoteAdd />
                 <section className="notes-list flex">
                     {pinnedNotes && !pinnedNotes.length && unpinnedNotes && !unpinnedNotes.length &&
                         <div>No notes to show</div>}

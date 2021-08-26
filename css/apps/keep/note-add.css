@@ -1,0 +1,7 @@
+.new-note input {
+    width: 300px;
+}
+
+.choose-note-type {
+    display: inline-block;
+}
