@@ -1,4 +1,4 @@
 export function NoteImg({note}) {
     console.log('noteImg:', note)
-    return <div>noteImg</div>
+    return <img src={note.info.url} alt="" />
 }

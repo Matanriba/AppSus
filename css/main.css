@@ -16,3 +16,7 @@
 @import url(./apps/mail/cmps/mail-list.css);
 @import url(./apps/mail/cmps/mail-nav.css);
 @import url(./apps/mail/cmps/mail-search.css);
+
+/* NOTE APP */
+
+@import url(./apps/keep/note-preview.css);

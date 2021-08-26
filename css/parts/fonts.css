@@ -1,0 +1,19 @@
+@font-face {
+    font-family: FA-S;
+    src: url(../../assets/fonts/font-awesome/fa-solid-900.ttf);
+}
+
+@font-face {
+    font-family: FA-R;
+    src: url(../../assets/fonts/font-awesome/fa-regular-400.ttf);
+}
+
+.fas::after {
+    font-family: FA-S;
+}
+
+/* ICONS */
+
+.fas.fa-list-ul::after {
+    content: "\f0ca";
+}

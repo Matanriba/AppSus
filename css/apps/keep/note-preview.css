@@ -1,0 +1,31 @@
+.notes-list {
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.note {
+    /* flex: 1 1; */
+    min-width: 200px;
+    max-width: 350px;
+    min-height: 200px;
+    margin: 5px;
+    border: 0.5px solid black;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+.note h3, .note p {
+    margin-top: 0;
+}
+
+.note img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.note iframe {
+    width: 100%;
+    height: 200px;
+    /* height: 300px; */
+}
+

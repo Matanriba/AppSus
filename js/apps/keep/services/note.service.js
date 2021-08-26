@@ -1,5 +1,5 @@
 import { utilService } from '../../../services/util.service.js'
-import { storageService } from '../../../services/storage.service.js'
+// import { storageService } from '../../../services/storage.service.js'
 
 export const noteService = {
     query,
@@ -9,8 +9,9 @@ export const noteService = {
 }
 
 const KEY_DB = 'notesDB'
-const gNotes = storageService.loadFromStorage(KEY_DB) || _getDefaultNotes()
-_saveNotesToStorage()
+const gNotes = _getDefaultNotes()
+// const gNotes = storageService.loadFromStorage(KEY_DB) || _getDefaultNotes()
+// _saveNotesToStorage()
 
 function query(filterBy) {
     const { byType, bySearch } = filterBy
@@ -24,14 +25,14 @@ function query(filterBy) {
 
 function addNote(noteDetails) {
     gNotes.unshift(_createNote(noteDetails))
-    _saveNotesToStorage()
+    // _saveNotesToStorage()
     return Promise.resolve()
 }
 
 function removeNote(noteId) {
     const noteIdx = gNotes.findIndex(note => { return noteId === note.id })
     gNotes.splice(noteIdx, 1)
-    _saveNotesToStorage()
+    // _saveNotesToStorage()
     return Promise.resolve()
 }
 
@@ -61,9 +62,9 @@ function _createNote(noteDetails) {
     }
 }
 
-function _saveNotesToStorage() {
-    storageService.saveToStorage(KEY_DB, gNotes)
-}
+// function _saveNotesToStorage() {
+//     storageService.saveToStorage(KEY_DB, gNotes)
+// }
 
 function _getDefaultNotes() {
     return [
@@ -72,7 +73,7 @@ function _getDefaultNotes() {
             type: "note-txt",
             isPinned: true,
             info: {
-                title: "FS",
+                // title: "FS",
                 txt: "Fullstack Me Baby!"
             }
         },
@@ -81,7 +82,7 @@ function _getDefaultNotes() {
             type: "note-img",
             info: {
                 url: "https://cutt.ly/fWrCAJz",
-                title: "Bobi",
+                // title: "Bobi",
                 txt: "OMG Bobi 😍"
             },
             style: {
@@ -92,8 +93,8 @@ function _getDefaultNotes() {
             id: utilService.makeId(),
             type: "note-video",
             info: {
-                url: "https://www.youtube.com/watch?v=e-OPyR_P7rU",
-                // src="https://www.youtube.com/embed/e-OPyR_P7rU"
+                // url: "https://www.youtube.com/watch?v=e-OPyR_P7rU",
+                url: "https://www.youtube.com/embed/e-OPyR_P7rU",
                 title: "Dog fails",
                 txt: "LOLOLOL"
             },
