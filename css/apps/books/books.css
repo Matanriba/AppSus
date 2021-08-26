@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* GENERAL */
+
+body {
+    color: rgb(78, 78, 78);
+    text-align: center;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* FILTER  */
+
+.filter-header {
+    margin-top: 20px;
+}
+
+.book-filter {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.book-filter input {
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.book-filter button {
+    cursor: pointer;
+    background-color: rgb(187, 187, 248);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.book-list {
+    max-width: 1060px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.book-preview {
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 450px;
+    width: 250px;
+    box-shadow: 10px 10px 72px 0px rgba(0, 0, 0, 0.75);
+}
+
+.book-preview:hover {
+    transform: translate(0, 5px);
+}
+
+.book-preview img {
+    height: 250px;
+}
+
+.book-details {
+    background-color: whitesmoke;
+    margin: 0 auto;
+    width: 700px;
+    border-left: 2px rgb(126, 126, 126) solid;
+    border-right: 2px rgb(126, 126, 126) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-details .title {
+    margin-top: 70px;
+    font-size: 2rem;
+    padding: 0;
+}
+
+.book-details .book-img {
+    height: 300px;
+    box-shadow: 10px 10px 72px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+}
+
+.book-details .sale-img {
+    height: 100px;
+}
+
+.book-details .back-btn {
+    padding: 5px;
+    position: absolute;
+    top: 100px;
+}
+
+.book-details a {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.long-txt-btn {
+    background-color: whitesmoke;
+    color: rgb(85, 84, 84);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.book-desc {
+    max-width: 500px;
+    font-size: 1.5em;
+}
+
+
+/* REVIEWS */
+
+.review-add {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-add input {
+    border-radius: 5px;
+}
+
+.review-add textarea {
+    border-radius: 5px;
+    width: 250px;
+    height: 100px;
+}
+
+.review-add button {
+    margin-top: 20px;
+}
+
+.reviews-container {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.add-review-link {
+    margin-bottom: 50px;
+}
+
+.add-review-link:hover {
+    color: red;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-preview {
+    height: 300px;
+    width: 500px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: rgb(211, 211, 211);
+    padding: 10px;
+}
+
+.review-preview .close-btn {
+    height: 20px;
+}
+
+
+/* USER MSG  */
+
+.user-msg {
+    border-radius: 15px;
+    background-color: rgb(255, 250, 250);
+    position: fixed;
+    padding: 20px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.user-msg.danger {
+    color: rgb(250, 154, 154);
+    border: 3px rgb(250, 154, 154) solid;
+}
+
+.user-msg.success {
+    color: rgb(178, 250, 154);
+    border: 3px rgb(178, 250, 154) solid;
+}

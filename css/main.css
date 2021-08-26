@@ -22,3 +22,7 @@
 
 @import url(./apps/keep/note-preview.css);
 @import url(./apps/keep/note-add.css);
+
+/* BOOKS APP  */
+
+@import url(./apps/books/books.css);
