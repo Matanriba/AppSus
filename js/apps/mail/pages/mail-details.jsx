@@ -41,3 +41,10 @@ export class MailDetails extends React.Component {
         )
     }
 }
+
+// id: 'e107',
+// from: 'Beth Smithasd',
+// subject: 'Holy Crap!',
+// body: 'Would losdfgsdfgve to catch up sometimes',
+// to: 'momo@momo.com',
+// status: 'inbox',

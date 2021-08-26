@@ -35,22 +35,22 @@ export class MailCompose extends React.Component {
                 {this.state.isActive && (
                     <form className="mail-compose flex column" onSubmit={this.onAddMail}>
                         <div className="compose-input to flex">
-                        <label htmlFor="to">To: </label>
-                        <input required type="email" name="to" id="to" value={to} onChange={this.handleChange} />
+                        <label htmlFor="to"></label>
+                        <input required type="email" name="to" id="to" value={to} onChange={this.handleChange} placeholder="To:" />
                         </div>
                         <div className="compose-input subject flex">
-                        <label htmlFor="subject">Subject: </label>
-                        <input required type="text" name="subject" id="subject" value={subject} onChange={this.handleChange} />
+                        <label htmlFor="subject"></label>
+                        <input required type="text" name="subject" id="subject" value={subject} onChange={this.handleChange} placeholder="Subject:" />
                         </div>
                         <div className="compose-input body flex">
-                        <label htmlFor="body">Body: </label>
-                        <input required type="text" name="body" id="body" value={body} onChange={this.handleChange} />
+                        <label htmlFor="body"></label>
+                        <textarea required type="text" name="body" id="body" value={body} onChange={this.handleChange} />
                         </div>
 
                         <button>Send!</button>
                     </form>
                     )}
-                    <button className="compose-btn" onClick={this.onToggleActive}>Compose</button>
+                    <button className="compose-btn" onClick={this.onToggleActive}>🚀 Compose</button>
             </section>
         )
     }
