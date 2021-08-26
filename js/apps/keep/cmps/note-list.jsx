@@ -1,9 +1,9 @@
 import { NotePreview } from './note-preview.jsx'
 
-export function NoteList({ notes }) {
+export function NoteList({ notes, onRemoveNote }) {
     return (
-        <section className="notes-list flex">
-            {notes.map(note => <NotePreview key={note.id} note={note} />)}
-        </section>
+        <React.Fragment>
+            {notes.map(note => <NotePreview key={note.id} note={note} onRemoveNote={onRemoveNote} />)}
+        </React.Fragment>
     )
 }

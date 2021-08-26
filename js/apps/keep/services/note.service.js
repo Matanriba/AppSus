@@ -13,14 +13,14 @@ const gNotes = _getDefaultNotes()
 // const gNotes = storageService.loadFromStorage(KEY_DB) || _getDefaultNotes()
 // _saveNotesToStorage()
 
-function query(filterBy) {
+function query(filterBy, isGetPinned = false) {
     const { byType, bySearch } = filterBy
-    if (byType || bySearch) {
-        let notesToShow = gNotes.filter(note => { return note.type === byType })
-        if (!notesToShow) notesToShow = ['No matches found']
-        return Promise.resolve(notesToShow)
-    }
-    return Promise.resolve(gNotes)
+    let notesToShow = []
+    if (isGetPinned) notesToShow = gNotes.filter(note => { return note.isPinned })
+    else notesToShow = gNotes.filter(note => { return !note.isPinned })
+    if (byType || bySearch) notesToShow = notesToShow.filter(note => { return note.type === byType })
+    // if (!notesToShow.length) notesToShow = ['No matches found']
+    return Promise.resolve(notesToShow)
 }
 
 function addNote(noteDetails) {
@@ -71,7 +71,7 @@ function _getDefaultNotes() {
         {
             id: utilService.makeId(),
             type: "note-txt",
-            isPinned: true,
+            // isPinned: true,
             info: {
                 // title: "FS",
                 txt: "Fullstack Me Baby!"
@@ -111,7 +111,8 @@ function _getDefaultNotes() {
                     { txt: "Driving liscence", doneAt: null },
                     { txt: "Coding power", doneAt: 187111111 }
                 ]
-            }
+            },
+            isPinned: true
         }
     ]
 }

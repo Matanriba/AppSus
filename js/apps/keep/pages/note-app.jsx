@@ -3,39 +3,63 @@ import { noteService } from '../services/note.service.js'
 
 export class NoteApp extends React.Component {
     state = {
-        notes: null,
+        pinnedNotes: null,
+        unpinnedNotes: null,
         filterBy: {
             byType: null,
-            bySearch: null
+            bySearch: null,
         }
     }
+
+    notesToShow = null;
 
     componentDidMount() {
         this.loadNotes()
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        const { filterBy } = this.state
-        if (filterBy !== prevState.filterBy) this.loadNotes(filterBy)
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     const { filterBy } = this.state
+    //     if (filterBy !== prevState.filterBy) this.loadNotes(filterBy)
+    // }
 
     loadNotes = () => {
-        noteService.query(this.state.filterBy).then(notes => this.setState({ notes }))
+        noteService.query(this.state.filterBy)
+            .then(unpinnedNotes => this.setState({ unpinnedNotes }))
+        noteService.query(this.state.filterBy, true)
+            .then(pinnedNotes => { this.setState({ pinnedNotes }) })
     }
 
     onSetFilter = (filterBy) => {
         this.setState({ filterBy })
     }
 
+    // NOTE HANDLERS
+    onAddNote = () => {
+
+    }
+
+    onRemoveNote = (noteId) => {
+        noteService.removeNote(noteId).then(() => { this.loadNotes() })
+    }
+
+    onUpdateNote = () => {
+        //remove/add todo, change style.. 
+    }
+
+
     render() {
-        const { notes, filterBy } = this.state
-        console.log('notes:', notes)
-        if (!notes) return <div>Loading...</div>
+        const { pinnedNotes, unpinnedNotes, filterBy } = this.state
+        if (!pinnedNotes && !unpinnedNotes) return <div>Loading...</div>
         return (
             <section>
                 <div>A search + filter bar...</div>
                 <div>A new note widget...</div>
-                <NoteList notes={notes} />
+                <section className="notes-list flex">
+                    {pinnedNotes && !pinnedNotes.length && unpinnedNotes && !unpinnedNotes.length &&
+                        <div>No notes to show</div>}
+                    {pinnedNotes && <NoteList onRemoveNote={this.onRemoveNote} notes={pinnedNotes} />}
+                    {unpinnedNotes && <NoteList onRemoveNote={this.onRemoveNote} notes={unpinnedNotes} />}
+                </section>
             </section>
         )
     }
