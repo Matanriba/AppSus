@@ -132,7 +132,8 @@ function _createMail(subject, body, to) {
         subject,
         body,
         isRead: true,
-        sentAt: Date.now(),
+        sentAt: utilService.timestampConverter(Date.now()),
+        isStarred: false,
         to,
         status: 'sent'
     }

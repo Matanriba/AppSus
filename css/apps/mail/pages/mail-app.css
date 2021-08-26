@@ -3,6 +3,8 @@
 }
 
 .mail-app {
+    margin: 0;
+    background-color: whitesmoke;
     font-family: sans-serif;
     justify-content: space-between;
     gap: 5px;

@@ -1,6 +1,33 @@
 .mail-compose {
+    display: flex;
+    flex-direction: column;
+    border: 1px gray solid;
+    max-height: 60vh;
+    max-width: 60vw;
     background-color: whitesmoke;
     position: fixed;
     bottom: 5px;
-    right: 5px;
+    right: 10px;
+}
+
+.mail-compose input {
+    border: none;
+    border-bottom: 1px gray solid;
+    padding: 5px;
+    width: 100%;
+}
+
+.mail-compose textarea {
+    border: none;
+    height: 50vh;
+    width: 60vw;
+}
+
+.mail-compose button {
+    cursor: pointer;
+}
+
+.compose-btn {
+    border-radius: 20px;
+    padding: 20px;
 }
