@@ -1,10 +1,16 @@
 .mail-preview {
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
+}
+
+.mail-preview {
+    padding: 0 10px;
     justify-content: space-between;
     font-weight: bold;
-    padding-right: 15px;
-    box-shadow: 1px -5px 5px -7px rgba(0, 0, 0, 0.75) inset;
+}
+
+.mail-preview a {
+    width: 100%;
 }
 
 .mail-preview:hover {
@@ -12,40 +18,81 @@
 }
 
 .mail-preview.read {
-    font-weight: normal;
     background-color: rgb(236, 236, 236);
 }
 
 .mail-preview-content {
-    width: 1000px;
     text-align: left;
-    padding-left: 15px;
     list-style-type: none;
-    justify-content: space-between;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    line-height: 0;
+}
+
+.mail-preview-link {
+    display: flex;
+    flex-grow: 1;
     align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    margin: auto;
 }
-
-.mail-preview-content :first-child {
-    /* width: 50px; */
-    /* max-width: 20px; */
-}
-
-.mail-preview-content li:last-child {}
 
 .preview-btns {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.preview-btns button {
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
+.remove-mail-btn,
+.read-mail-btn {
+    display: none;
 }
 
-.star-img {
-    height: 20px;
+@media (min-width: 650px) {
+    .remove-mail-btn,
+    .read-mail-btn {
+        display: inline-block;
+    }
+    .mail-preview {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+        padding-right: 15px;
+        box-shadow: 1px -5px 5px -7px rgba(0, 0, 0, 0.75) inset;
+    }
+    .mail-preview a {
+        width: 100%;
+    }
+    .mail-preview:hover {
+        box-shadow: 0px -1px 2px 1px rgba(173, 173, 173, 0.75) inset;
+    }
+    .mail-preview.read {
+        font-weight: normal;
+        background-color: rgb(236, 236, 236);
+    }
+    .mail-preview-content {
+        flex-direction: row;
+        text-align: left;
+        padding-left: 15px;
+        list-style-type: none;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        margin: auto;
+    }
+    .preview-btns {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+    .preview-btns button {
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+    }
+    .star-img {
+        height: 20px;
+    }
 }

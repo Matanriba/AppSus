@@ -2,17 +2,24 @@
     box-sizing: border-box;
 }
 
-.mail-app-container {
-    width: 100%;
-    margin: 0;
-    background-color: whitesmoke;
-    font-family: sans-serif;
-    justify-content: space-between;
+.mail-app-main {
+    flex-direction: column;
 }
 
-.mail-app .mail-search {}
-
-.mail-app-main {
-    width: 100%;
-    height: 100vh;
+@media (min-width:650px) {
+    .mail-app-main {
+        flex-direction: row;
+    }
+    .mail-app-container {
+        width: 100%;
+        margin: 0;
+        background-color: whitesmoke;
+        font-family: sans-serif;
+        justify-content: space-between;
+    }
+    .mail-app .mail-search {}
+    .mail-app-main {
+        width: 100%;
+        height: 100vh;
+    }
 }

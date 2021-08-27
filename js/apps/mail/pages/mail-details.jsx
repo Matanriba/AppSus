@@ -38,9 +38,9 @@ export class MailDetails extends React.Component {
                     </div>
                     <div className="right-btns">
                         <button onClick={() => this.props.onStar(mail.id)} title="Mark As Starred">
-                            <img className="star-img" src={(mail.isStarred) ? '../../assets/img/star-full.png' : '../../assets/img/star-empty.png'} />
+                            <img className="star-img" src={(mail.isStarred) ? '../../assets/svg/star-active.svg' : '../../assets/svg/star-disabled.svg'} />
                         </button>
-                        <button title="Mark As Unread" onClick={() => this.props.onToggleIsRead(mail.id)}>✉</button>
+                        <button title="Mark As Unread" onClick={() => this.props.onToggleIsRead(mail.id)}><img src={(mail.isRead) ? '../../assets/img/read.png' : '../../assets/img/unread.png'} /></button>
                         <button title="Remove Message" onClick={() => this.props.onRemoveMail(mail.id)}>🗑</button>
                         {mail.status.includes('trash') &&
                             <button className="to-inbox-btn" title="Send Back to Inbox" onClick={() => this.props.onUnRemove(mail.id)}>🚀</button>
