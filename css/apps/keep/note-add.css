@@ -1,10 +1,20 @@
+@import url(./icons.css);
+
 .new-note {
-    width: 300px;
+    width: 350px;
     margin: 0 auto;
 }
 
 .new-note input {
+    height: 2em;
+}
+
+.new-note input, textarea {
+    padding: 5px;
     width: 100%;
+    font-size: 1em;
+    border-radius: 7px;
+    border: 1px solid grey;
 }
 
 .new-note input {
@@ -23,32 +33,14 @@
     display: flex;
 }
 
-.icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-
-.icon-container:hover {
-    background-color: rgb(229, 226, 226);
-}
-
-.icon-container img {
-    height: 15px;
-    cursor: pointer;
-}
-
 .control-buttons button {
-    font-size: 0.9em;
+    font-size: 1em;
     border: none;
     font-family: Open-Sans-semibold;
     background-color: white;
     cursor: pointer;
     padding: 5px 10px;
-    border-radius: 0.3em;
+    border-radius: 0.4em;
 }
 
 .control-buttons button:hover {

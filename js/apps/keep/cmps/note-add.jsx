@@ -21,8 +21,7 @@ export class NoteAdd extends React.Component {
         const title = this.state.note.info.title
         const txt = this.state.note.info.txt
         this.setState({ note: { type, info: { title, txt } } })
-        // this.setState(prevState => ({ note: {type, info: { ...prevState.note.info.title } }}))
-
+        // didn't manage to do it with prevState... :(
     }
 
     handleChange = (ev) => {
@@ -31,15 +30,14 @@ export class NoteAdd extends React.Component {
         this.setState(prevState => ({ note: { ...prevState.note, info: { ...prevState.note.info, [field]: value } } }))
     }
 
-
     DynamicInput = (props) => {
         switch (props.noteType) {
             case 'note-video':
-                return <input placeholder="enter video url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
+                return <input required placeholder="enter video url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
             case 'note-img':
-                return <input placeholder="enter image url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
+                return <input required placeholder="enter image url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
             case 'note-todos':
-                return <input placeholder="enter comma seperated list" name="todos" onChange={this.handleChange} value={this.state.note.info.todos || ''} />
+                return <input required placeholder="enter comma seperated list" name="todos" onChange={this.handleChange} value={this.state.note.info.todos || ''} />
             default:
                 return null
         }
@@ -58,22 +56,26 @@ export class NoteAdd extends React.Component {
         })
     }
 
-    getTodosFromTxt = () => {
-        const { todoTxt } = this.state.note.info.todos
+    setTodosFromList = (commaSepList) => {
+        const todos = commaSepList.split(',').map(todo => ({ txt: todo.trim(), isDone: false }))
+        this.state.note.info.todos = todos
     }
 
     onSubmit = (ev) => {
         ev.preventDefault()
-        const noteInfo = this.state.note.info
-
-        const { onAddNote } = this.props
         const { note } = this.state
-        onAddNote(note)
+        console.log('note:', note)
+        const infoVals = Object.values(note.info);
+        const hasInfo = infoVals.some(val => (val))
+        if (hasInfo) {
+            if (note.type === 'note-todos') this.setTodosFromList(note.info.todos)
+            const { onAddNote } = this.props
+            onAddNote(note)
+        }
         this.resetNote()
     }
 
     render() {
-
         const { note, isClicked } = this.state
         const { type } = note
         return (
@@ -82,26 +84,26 @@ export class NoteAdd extends React.Component {
                 {isClicked &&
                     <React.Fragment>
                         <input type="text" name="title" placeholder="Add title" onChange={this.handleChange} value={note.info.title || ''} />
-                        <input type="text" name="txt" placeholder={`Enter text...`} onChange={this.handleChange} value={note.info.txt || ''} />
+                        <textarea rows="3" name="txt" placeholder={`Enter text ...`} onChange={this.handleChange} value={note.info.txt || ''} />
                         <this.DynamicInput noteType={type} />
                         <div className="new-note-controls">
                             <div className="choose-type">
                                 <span className="icon-container" title="text" onClick={(ev) => this.onChangeNoteType(ev, 'note-txt')}>
-                                    <img src="../../../../assets/svg/keep/note-txt.svg" />
+                                    <img className="icon" src="../../../../assets/svg/keep/note-txt.svg" />
                                 </span>
                                 <span className="icon-container" title="checklist" onClick={(ev) => this.onChangeNoteType(ev, 'note-todos')}>
-                                    <img src="../../../../assets/svg/keep/note-todos.svg" />
+                                    <img className="icon" src="../../../../assets/svg/keep/note-todos.svg" />
                                 </span>
                                 <span className="icon-container" title="image" onClick={(ev) => this.onChangeNoteType(ev, 'note-img')}>
-                                    <img src="../../../../assets/svg/keep/note-img.svg" />
+                                    <img className="icon" src="../../../../assets/svg/keep/note-img.svg" />
                                 </span>
                                 <span className="icon-container" title="video" onClick={(ev) => this.onChangeNoteType(ev, 'note-video')}>
-                                    <img src="../../../../assets/svg/keep/note-video.svg" />
+                                    <img className="icon" src="../../../../assets/svg/keep/note-video.svg" />
                                 </span>
                             </div>
                             <div className="control-buttons">
-                                <button>Add note</button>
-                                <button onClick={this.onToggleFormClicked} >Cancel</button>
+                                <button>Keep note</button>
+                                <button onClick={this.onToggleFormClicked} >Close</button>
                             </div>
                         </div>
                     </React.Fragment>
@@ -110,5 +112,3 @@ export class NoteAdd extends React.Component {
         )
     }
 }
-
-// import {} from '../../../../assets/svg/keep/'

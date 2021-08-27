@@ -1,0 +1,37 @@
+.note-filter{
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.note-search {
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 7px;
+    border: 1px solid grey;
+}
+
+.note-types {
+    margin-inline-start: 7px;
+    display: flex;
+}
+
+.note-type-btn {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 0.3em;
+    margin: 0 5px;
+}
+
+.note-type-btn:hover {
+    background-color: orange;
+}
+
+.note-type-btn.selected {
+    background-color: orange;
+}
