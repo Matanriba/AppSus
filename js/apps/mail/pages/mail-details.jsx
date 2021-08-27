@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 const { Link } = ReactRouterDOM
 
@@ -33,10 +34,11 @@ export class MailDetails extends React.Component {
         if (!mail) return <div>Loading...</div>
         return (
             <article className='mail-details'>
-                <button className='back-btn' onClick={this.onBack}>Back</button>
-                <h1>{mail.from} </h1>
+                <button className='back-btn' onClick={this.onBack}>{`<---`}</button>
+                <h3>From: {mail.from} </h3>
+                <small>At: {utilService.timestampConverter(mail.sentAt)}</small>
                 <h2>{mail.subject}</h2>
-                <h3>{mail.body}</h3>
+                <p>{mail.body}</p>
             </article>
         )
     }
