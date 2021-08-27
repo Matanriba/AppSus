@@ -15,6 +15,15 @@
     position: relative;
 }
 
+.note-todo.done {
+    text-decoration: line-through;
+}
+
+/* .pinned {
+    position: absolute;
+    right: 0;
+} */
+
 .note h3, .note p {
     margin-top: 0;
 }
@@ -35,4 +44,3 @@
     position: absolute;
     bottom: 0;
 }
-

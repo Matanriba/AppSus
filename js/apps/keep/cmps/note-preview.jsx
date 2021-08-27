@@ -3,15 +3,16 @@ import { NoteTodo } from "./note-todo.jsx"
 import { NoteVideo } from "./note-video.jsx"
 
 
-export function NotePreview({ note, onRemoveNote }) {
-    const DyanmicNote = (note) => {
-        switch (note.type) {
+export function NotePreview({ note, onRemoveNote,onUpdateNote }) {
+    
+    const DynamicNote = (props) => {
+        switch (props.note.type) {
             case 'note-video':
-                return <NoteVideo note={note} />
+                return <NoteVideo {...props} />
             case 'note-todos':
-                return <NoteTodo note={note} />
+                return <NoteTodo {...props} />
             case 'note-img':
-                return <NoteImg note={note} />
+                return <NoteImg {...props} />
             case 'note-txt':
                 return null
         }
@@ -19,9 +20,10 @@ export function NotePreview({ note, onRemoveNote }) {
 
     return (
         <div className={`note ${note.type}`} >
-            {note.isPinned && <span>{'<Pinned>'}</span>}
+            {note.isPinned && <span className="pinned">📌</span>}
             {note.info.title && <h3>{note.info.title}</h3>}
-            {DyanmicNote(note)}
+            {/* {DyanmicNote(note)} */}
+            <DynamicNote note={note} onUpdateNote={onUpdateNote} />
             {note.info.txt && <p>{note.info.txt}</p>}
             <div className="note-controls">
                 <span className={`icon ${note.type}`}></span>
