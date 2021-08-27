@@ -12,6 +12,7 @@ export class MailCompose extends React.Component {
 
     onToggleActive = () => {
         this.setState((prevState) => ({ isActive: !prevState.isActive }));
+        this.setState((prevState) => ({ composeData: { ...prevState.composeData, to: '', subject: '', body: '' } }));
     };
 
     handleChange = ({ target }) => {
@@ -23,6 +24,7 @@ export class MailCompose extends React.Component {
     onAddMail = (ev) => {
         ev.preventDefault()
         mailService.addMail(this.state.composeData)
+        this.onToggleActive()
     }
 
 
@@ -34,23 +36,27 @@ export class MailCompose extends React.Component {
             <section className="mail-add">
                 {this.state.isActive && (
                     <form className="mail-compose flex column" onSubmit={this.onAddMail}>
+                        <div className="compose-header flex">
+                            <small>New Message</small>
+                            <button onClick={this.onToggleActive}>X</button>
+                        </div>
                         <div className="compose-input to flex">
-                        <label htmlFor="to"></label>
-                        <input required type="email" name="to" id="to" value={to} onChange={this.handleChange} placeholder="To:" />
+                            <label htmlFor="to"></label>
+                            <input required type="email" name="to" id="to" value={to} onChange={this.handleChange} placeholder="To:" />
                         </div>
                         <div className="compose-input subject flex">
-                        <label htmlFor="subject"></label>
-                        <input required type="text" name="subject" id="subject" value={subject} onChange={this.handleChange} placeholder="Subject:" />
+                            <label htmlFor="subject"></label>
+                            <input required type="text" name="subject" id="subject" value={subject} onChange={this.handleChange} placeholder="Subject:" />
                         </div>
                         <div className="compose-input body flex">
-                        <label htmlFor="body"></label>
-                        <textarea required type="text" name="body" id="body" value={body} onChange={this.handleChange} />
+                            <label htmlFor="body"></label>
+                            <textarea required type="text" name="body" id="body" value={body} onChange={this.handleChange} />
                         </div>
 
-                        <button>Send!</button>
+                        <button className="send-btn">Send!</button>
                     </form>
-                    )}
-                    <button className="compose-btn" onClick={this.onToggleActive}>🚀 Compose</button>
+                )}
+                <button className="compose-btn" onClick={this.onToggleActive}>🚀 Compose</button>
             </section>
         )
     }

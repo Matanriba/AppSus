@@ -2,10 +2,17 @@
     box-sizing: border-box;
 }
 
-.mail-app {
+.mail-app-container {
+    width: 100%;
     margin: 0;
     background-color: whitesmoke;
     font-family: sans-serif;
     justify-content: space-between;
-    gap: 5px;
+}
+
+.mail-app .mail-search {}
+
+.mail-app-main {
+    width: 100%;
+    height: 100vh;
 }
