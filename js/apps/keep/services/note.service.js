@@ -85,7 +85,6 @@ function _getDefaultNotes() {
             id: utilService.makeId(),
             type: "note-video",
             info: {
-                // url: "https://www.youtube.com/watch?v=e-OPyR_P7rU",
                 url: "https://www.youtube.com/embed/e-OPyR_P7rU",
                 title: "Dog fails",
                 txt: "LOLOLOL"
@@ -110,7 +109,6 @@ function _getDefaultNotes() {
 }
 
 function _getEmbdYoutubeUrl(url) {
-    const videoId = url.split("=")[1]
-    console.log(videoId)
+    const videoId = url.split('=')[1].split('&')[0]
     return `https://www.youtube.com/embed/${videoId}`
 }

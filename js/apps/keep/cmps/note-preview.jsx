@@ -17,7 +17,7 @@ export function NotePreview({ note, onRemoveNote,onUpdateNote }) {
                 return null
         }
     }
-
+// import {} from '../../../../assets/svg/keep/'
     return (
         <div className={`note ${note.type}`} >
             {note.isPinned && <span className="pinned">📌</span>}
@@ -25,7 +25,7 @@ export function NotePreview({ note, onRemoveNote,onUpdateNote }) {
             <DynamicNote note={note} onUpdateNote={onUpdateNote} />
             {note.info.txt && <p>{note.info.txt}</p>}
             <div className="note-controls">
-                <span className={`icon ${note.type}`}></span>
+                <img src={`../../../../assets/svg/keep/${note.type}-grey.svg`} alt="" />
                 <button onClick={() => onRemoveNote(note.id)}>🗑</button>
             </div>
         </div>

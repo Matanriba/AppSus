@@ -65,7 +65,7 @@ export class NoteAdd extends React.Component {
     onSubmit = (ev) => {
         ev.preventDefault()
         const noteInfo = this.state.note.info
-        
+
         const { onAddNote } = this.props
         const { note } = this.state
         onAddNote(note)
@@ -84,17 +84,31 @@ export class NoteAdd extends React.Component {
                         <input type="text" name="title" placeholder="Add title" onChange={this.handleChange} value={note.info.title || ''} />
                         <input type="text" name="txt" placeholder={`Enter text...`} onChange={this.handleChange} value={note.info.txt || ''} />
                         <this.DynamicInput noteType={type} />
-                        <div className="choose-note-type">
-                            <button onClick={(ev) => this.onChangeNoteType(ev, 'note-txt')}>Txt</button>
-                            <button onClick={(ev) => this.onChangeNoteType(ev, 'note-todos')}>List</button>
-                            <button onClick={(ev) => this.onChangeNoteType(ev, 'note-img')}>Img</button>
-                            <button onClick={(ev) => this.onChangeNoteType(ev, 'note-video')}>Vid</button>
+                        <div className="new-note-controls">
+                            <div className="choose-type">
+                                <span className="icon-container" title="text" onClick={(ev) => this.onChangeNoteType(ev, 'note-txt')}>
+                                    <img src="../../../../assets/svg/keep/note-txt.svg" />
+                                </span>
+                                <span className="icon-container" title="checklist" onClick={(ev) => this.onChangeNoteType(ev, 'note-todos')}>
+                                    <img src="../../../../assets/svg/keep/note-todos.svg" />
+                                </span>
+                                <span className="icon-container" title="image" onClick={(ev) => this.onChangeNoteType(ev, 'note-img')}>
+                                    <img src="../../../../assets/svg/keep/note-img.svg" />
+                                </span>
+                                <span className="icon-container" title="video" onClick={(ev) => this.onChangeNoteType(ev, 'note-video')}>
+                                    <img src="../../../../assets/svg/keep/note-video.svg" />
+                                </span>
+                            </div>
+                            <div className="control-buttons">
+                                <button>Add note</button>
+                                <button onClick={this.onToggleFormClicked} >Cancel</button>
+                            </div>
                         </div>
-                        <button>Add note</button>
-                        <button onClick={this.onToggleFormClicked} >Cancel</button>
                     </React.Fragment>
                 }
             </form >
         )
     }
 }
+
+// import {} from '../../../../assets/svg/keep/'

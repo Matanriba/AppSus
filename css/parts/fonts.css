@@ -3,6 +3,16 @@
     src: url(../../assets/fonts/Open-Sans/OpenSans-Regular.ttf);
 }
 
+@font-face {
+    font-family: Open-Sans-semibold;
+    src: url(../../assets/fonts/Open-Sans/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Open-Sans-bold;
+    src: url(../../assets/fonts/Open-Sans/OpenSans-Bold.ttf);
+}
+
 /* FONT AWESOME */
 
 @font-face {

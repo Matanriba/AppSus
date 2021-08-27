@@ -48,3 +48,7 @@
     position: absolute;
     bottom: 0;
 }
+
+.note-controls img {
+    height: 20px;
+}

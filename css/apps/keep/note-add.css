@@ -1,5 +1,10 @@
-.new-note input {
+.new-note {
     width: 300px;
+    margin: 0 auto;
+}
+
+.new-note input {
+    width: 100%;
 }
 
 .new-note input {
@@ -7,10 +12,45 @@
     margin: 0 auto;
 }
 
-/* .new-note > button {
-    display: block;
+.new-note-controls {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.choose-note-type {
-    display: inline-block;
-} */
+.choose-type {
+    display: flex;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.icon-container:hover {
+    background-color: rgb(229, 226, 226);
+}
+
+.icon-container img {
+    height: 15px;
+    cursor: pointer;
+}
+
+.control-buttons button {
+    font-size: 0.9em;
+    border: none;
+    font-family: Open-Sans-semibold;
+    background-color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 0.3em;
+}
+
+.control-buttons button:hover {
+    background-color: rgb(229, 226, 226);
+}
