@@ -2,6 +2,7 @@
     height: 90vh;
     width: 50%;
     position: fixed;
+    transform: translate(-100%);
 }
 
 .mail-nav {
@@ -9,7 +10,6 @@
     list-style-type: none;
     background-color: white;
     box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    /* transform: translate(-100%); */
 }
 
 .mail-nav li:not(:first-child) {
@@ -45,6 +45,7 @@
         padding-inline-start: 30px;
         position: unset;
         width: unset;
+        transform: unset;
     }
     .mail-nav {
         height: unset;

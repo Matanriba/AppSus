@@ -43,6 +43,13 @@
     align-items: center;
 }
 
+.preview-btns button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
 .remove-mail-btn,
 .read-mail-btn {
     display: none;
@@ -87,12 +94,11 @@
         flex-direction: row;
         gap: 5px;
     }
-    .preview-btns button {
-        border: none;
-        cursor: pointer;
-        font-size: 1.1rem;
-    }
     .star-img {
+        height: 20px;
+    }
+    .trash-img,
+    .envelope-img {
         height: 20px;
     }
 }
