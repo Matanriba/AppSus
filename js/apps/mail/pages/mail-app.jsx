@@ -28,7 +28,7 @@ export class MailApp extends React.Component {
             this.loadMails()
         }
     }
-    
+
     loadMails = () => {
         const { criteria } = this.state
 
@@ -37,7 +37,7 @@ export class MailApp extends React.Component {
         })
     }
 
-    onSetSearch = ({txt, isRead}) => {
+    onSetSearch = ({ txt, isRead }) => {
         this.setState(prevState => ({ criteria: { ...prevState.criteria, txt, isRead } }))
     }
 
@@ -55,20 +55,30 @@ export class MailApp extends React.Component {
         this.loadMails()
     }
 
+    onUnRemove = (mailId) => {
+        mailService.sendMailToInbox(mailId)
+        this.loadMails()
+    }
+
+    onStar = (mailId) => {
+        mailService.toggleMailIsStarred(mailId)
+        this.loadMails()
+    }
+
     render() {
         const { mails } = this.state
-        const {location} = this.props
-        console.log('location:', location)
+        const { location } = this.props
         return (
-            <section className='mail-app flex column'>
-                <MailSearch onSetSearch={this.onSetSearch} />
-                <div className="mail-main flex">
-                <MailNav setCriteriaStatus={this.setCriteriaStatus} />
-                <Switch>
-                    <Route path="/mail/:status/:mailId" render={(props) => <MailDetails {...props} />} />
-                    {/* <Route path={`${location.pathname}/:mailId`} render={(props) => <MailDetails {...props} />} /> */}
-                    <Route path={`${location.pathname}`} render={() => <MailList onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
-                </Switch>
+            <section className="mail-app-container flex column">
+                <div className="mail-app mail-search">
+                    <MailSearch onSetSearch={this.onSetSearch} />
+                </div>
+                <div className="mail-app-main flex">
+                    <MailNav setCriteriaStatus={this.setCriteriaStatus} />
+                    <Switch>
+                        <Route path="/mail/:status/:mailId" render={(props) => <MailDetails onStar={this.onStar} onUnRemove={this.onUnRemove} onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} {...props} />} />
+                        <Route path={`${location.pathname}`} render={() => <MailList onStar={this.onStar} onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
+                    </Switch>
                 </div>
             </section>
         )

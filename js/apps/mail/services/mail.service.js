@@ -7,7 +7,9 @@ export const mailService = {
     setMailAsRead,
     removeMail,
     toggleReadMailPreview,
-    addMail
+    addMail,
+    toggleMailIsStarred,
+    sendMailToInbox
 }
 
 const KEY = 'mailDB'
@@ -25,7 +27,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'sent',
+        status: ['sent'],
         isStarred: false
 
     },
@@ -37,7 +39,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox',
+        status: ['inbox'],
         isStarred: false
     },
     {
@@ -48,7 +50,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'trash',
+        status: ['trash'],
         isStarred: false
     },
     {
@@ -59,7 +61,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox',
+        status: ['inbox'],
         isStarred: false
     },
     {
@@ -70,7 +72,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox',
+        status: ['inbox'],
         isStarred: false
     },
     {
@@ -81,7 +83,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox',
+        status: ['inbox'],
         isStarred: false
     },
     {
@@ -92,16 +94,15 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: 'inbox',
+        status: ['inbox'],
         isStarred: false
     }
 ]
 
 function query(criteria) {
     const { status, txt, isRead } = criteria
-    console.log('isRead: ', isRead)
     let mailsToDisplay = gMails.filter(mail => {
-        return mail.status === status &&
+        return mail.status.includes(status) &&
             (mail.body.toLowerCase().includes(txt.toLowerCase()) ||
                 mail.subject.toLowerCase().includes(txt.toLowerCase()) ||
                 mail.from.toLowerCase().includes(txt.toLowerCase()))
@@ -116,6 +117,20 @@ function setMailAsRead(mailId) {
     const mailIdx = gMails.findIndex(mail => mail.id === mailId)
     if (!gMails[mailIdx] || gMails[mailIdx].isRead === true) return
     gMails[mailIdx].isRead = true
+    _saveMailsToStorage()
+}
+
+function toggleMailIsStarred(mailId) {
+    const mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    gMails[mailIdx].isStarred = !gMails[mailIdx].isStarred
+    if (gMails[mailIdx].isStarred) gMails[mailIdx].status.push('starred')
+    else gMails[mailIdx].status.splice(1)
+    _saveMailsToStorage()
+}
+
+function sendMailToInbox(mailId) {
+    const mailIdx = gMails.findIndex(mail => mail.id === mailId)
+    gMails[mailIdx].status = ['inbox']
     _saveMailsToStorage()
 }
 
@@ -135,7 +150,7 @@ function _createMail(subject, body, to) {
         sentAt: utilService.timestampConverter(Date.now()),
         isStarred: false,
         to,
-        status: 'sent'
+        status: ['sent']
     }
 }
 
@@ -148,11 +163,11 @@ function addMail(mailData) {
 
 function removeMail(mailId) {
     let mailIdx = gMails.findIndex(mail => mail.id === mailId)
-    if (gMails[mailIdx].status === 'trash') {
+    if (gMails[mailIdx].status.includes('trash')) {
         gMails.splice(mailIdx, 1)
         _saveMailsToStorage
         return Promise.resolve()
-    } else gMails[mailIdx].status = 'trash'
+    } else gMails[mailIdx].status = ['trash']
 }
 
 function getMailById(mailId) {

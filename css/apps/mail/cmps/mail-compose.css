@@ -6,8 +6,28 @@
     max-width: 60vw;
     background-color: whitesmoke;
     position: fixed;
-    bottom: 5px;
+    bottom: 55px;
     right: 10px;
+    border-radius: 5px;
+}
+
+.send-btn {
+    border: none;
+    padding: 5px;
+    background-color: rgb(177, 177, 177);
+    cursor: pointer;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.compose-header {
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.compose-header button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .mail-compose input {
@@ -21,10 +41,7 @@
     border: none;
     height: 50vh;
     width: 60vw;
-}
-
-.mail-compose button {
-    cursor: pointer;
+    border: none;
 }
 
 .compose-btn {
