@@ -2,14 +2,15 @@
     width: 300px;
 }
 
-.new-note input[name=title] {
+.new-note input {
     display: block;
+    margin: 0 auto;
 }
 
-.new-note > button {
+/* .new-note > button {
     display: block;
 }
 
 .choose-note-type {
     display: inline-block;
-}
+} */

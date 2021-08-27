@@ -1,3 +1,7 @@
+.new-note {
+    margin: 10px;
+}
+
 .notes-list {
     flex-wrap: wrap;
     align-items: flex-start;

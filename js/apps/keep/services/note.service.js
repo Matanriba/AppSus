@@ -13,13 +13,10 @@ const gNotes = _getDefaultNotes()
 // const gNotes = storageService.loadFromStorage(KEY_DB) || _getDefaultNotes()
 // _saveNotesToStorage()
 
-function query(filterBy, isGetPinned = false) {
+function query(filterBy={}/* , isGetPinned = false */) {
     const { byType, bySearch } = filterBy
-    let notesToShow = []
-    if (isGetPinned) notesToShow = gNotes.filter(note => { return note.isPinned })
-    else notesToShow = gNotes.filter(note => { return !note.isPinned })
-    if (byType || bySearch) notesToShow = notesToShow.filter(note => { return note.type === byType })
-    // if (!notesToShow.length) notesToShow = ['No matches found']
+    let notesToShow = gNotes
+    if (byType) notesToShow = notesToShow.filter(note => { return note.type === byType })
     return Promise.resolve(notesToShow)
 }
 
@@ -36,12 +33,9 @@ function removeNote(noteId) {
     return Promise.resolve()
 }
 
-function updateNote(noteId, newDetails) {
-    const note = _getNoteById(noteId)
-    const { info, style, isPinned } = newDetails
-    if (info) note.info = info
-    if (style) note.style = style
-    if (isPinned) note.isPinned = isPinned
+function updateNote(updatedNote) {
+    const updatedNoteIdx = gNotes.findIndex(currNote => currNote.id === updatedNote.id)
+    gNotes[updatedNoteIdx] = updatedNote
     return Promise.resolve()
 }
 
@@ -51,13 +45,11 @@ function _getNoteById(noteId) {
 
 function _createNote(noteDetails) {
     const { type, info } = noteDetails
-    let { style } = noteDetails
-    if (!style) style = { backgroundColor: "#fff" }
+    if (type === 'note-video') info.url = _getEmbdYoutubeUrl(info.url)
     return {
         id: utilService.makeId(),
         type,
         info,
-        style,
         isPinned: false
     }
 }
@@ -108,8 +100,8 @@ function _getDefaultNotes() {
             info: {
                 title: "Get my stuff together",
                 todos: [
-                    { txt: "Driving liscence", doneAt: null },
-                    { txt: "Coding power", doneAt: 187111111 }
+                    { txt: "Driving liscence", isDone: false },
+                    { txt: "Coding power", isDone: false }
                 ]
             },
             isPinned: true
@@ -117,8 +109,8 @@ function _getDefaultNotes() {
     ]
 }
 
-// function urlToEmbd() {
-//     const str = "https://www.youtube.com/watch?v=1adfD9";
-//     const res = str.split("=");
-//     const embeddedUrl = "https://www.youtube.com/embed/"+res[1];
-// }
+function _getEmbdYoutubeUrl(url) {
+    const videoId = url.split("=")[1]
+    console.log(videoId)
+    return `https://www.youtube.com/embed/${videoId}`
+}

@@ -38,8 +38,7 @@ export class NoteApp extends React.Component {
 
     // NOTE HANDLERS
     onAddNote = (note) => {
-        console.log('adding note: ', note)
-
+        noteService.addNote(note).then(this.loadNotes)
     }
 
     onRemoveNote = (noteId) => {
@@ -70,11 +69,9 @@ export class NoteApp extends React.Component {
         return (
             <section>
                 <div>A search + filter bar...</div>
-                <div>A new note widget...</div>
-                <NoteAdd onSubmit={this.onAddNote} />
+                <NoteAdd className="new-note" onAddNote={this.onAddNote} />
                 <section className="notes-list flex">
-                    {/* {pinnedNotes && !pinnedNotes.length && unpinnedNotes && !unpinnedNotes.length &&
-                        <div>No notes to show</div>} */}
+                    {notes && !notes.length && <div>No notes to show</div>}
                     {this.pinnedNotes && <NoteList onUpdateNote={this.onUpdateNote} onRemoveNote={this.onRemoveNote} notes={this.pinnedNotes} />}
                     {this.unpinnedNotes && <NoteList onUpdateNote={this.onUpdateNote} onRemoveNote={this.onRemoveNote} notes={this.unpinnedNotes} />}
                 </section>
