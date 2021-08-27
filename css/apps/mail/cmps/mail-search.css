@@ -1,4 +1,5 @@
 .mail-search {
+    margin-top: 10px;
     align-self: center;
     gap: 5px;
 }
@@ -6,11 +7,18 @@
 .mail-search input {
     background-color: rgb(243, 243, 243);
     border-radius: 5px;
-    width: 500px;
+    width: 300px;
     padding: 10px;
 }
 
 .mail-search select {
     background-color: rgb(243, 243, 243);
     border-radius: 5px;
+}
+
+@media (min-width: 650px) {
+    .mail-search input {
+        background-color: rgb(243, 243, 243);
+        width: 500px;
+    }
 }

@@ -2,7 +2,7 @@ const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeader() {
     return (
-        <header className="flex space-between align-center">
+        <header className="header-container flex space-between align-center main-layout">
             <Link to="/"><h1>AppSus.</h1></Link>
             <nav>
                 <NavLink to="/books">Books</NavLink>

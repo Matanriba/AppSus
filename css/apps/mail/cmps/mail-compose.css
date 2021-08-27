@@ -14,7 +14,7 @@
 .send-btn {
     border: none;
     padding: 5px;
-    background-color: rgb(177, 177, 177);
+    background-color: rgb(243, 203, 129);
     cursor: pointer;
     border-radius: 0px 0px 10px 10px;
 }
@@ -45,6 +45,8 @@
 }
 
 .compose-btn {
+    cursor: pointer;
+    background-color: #fff;
     border-radius: 20px;
     padding: 20px;
 }
