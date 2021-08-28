@@ -7,7 +7,7 @@
 }
 
 .side-bar.nav-menu-open {
-    transform: translate(0);
+    transform: translate(-10%);
 }
 
 .side-bar.side-bar.nav-menu-open .compose-btn {

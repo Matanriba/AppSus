@@ -16,7 +16,7 @@ hr {
     align-items: center;
 }
 
-.about-card:last-child {
+.about-card:first-child {
     text-align: right;
 }
 

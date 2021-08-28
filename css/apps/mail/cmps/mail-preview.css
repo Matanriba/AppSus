@@ -102,6 +102,9 @@
         cursor: pointer;
         margin: auto;
     }
+    .mail-preview-content :first-of-type {
+        width: 250px;
+    }
     .preview-btns {
         display: flex;
         flex-direction: row;

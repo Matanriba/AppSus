@@ -1,8 +1,13 @@
 export function Home() {
     return (
         <section className='app-home'>
-        <h1>Welcome</h1>
-        <img src="./assets/img/hero.jpg" />
+            <div className="hero">
+                <a href="#">Get Started</a>
+                <img src="./assets/img/hero.jpg" />
+            </div>
+            <div className="app-cards">
+                
+            </div>
         </section>
     )
 }
