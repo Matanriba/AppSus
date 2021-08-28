@@ -56,7 +56,7 @@ export class MailCompose extends React.Component {
                         <button className="send-btn">Send!</button>
                     </form>
                 )}
-                <button className="compose-btn" onClick={this.onToggleActive}><img src="./../assets/img/plus.png" /></button>
+                <button className="compose-btn" onClick={this.onToggleActive}><img src="././assets/img/plus.png" /></button>
             </section>
         )
     }
