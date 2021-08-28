@@ -3,17 +3,12 @@
     margin: 10px;
 }
 
-/* .notes-list {
-    display: grid;
-    margin: 20px 30px;
-    grid-template-columns: 1fr;
-} */
-
 .notes-list {
     display: flex;
     margin: 20px 30px;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .note {

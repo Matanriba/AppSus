@@ -94,7 +94,10 @@ function _getDefaultNotes() {
             id: utilService.makeId(),
             type: "note-txt",
             info: {
-                txt: "Fullstack Me Baby!"
+                txt: "My Google Map API KEY: kH8Ffj9Hdn4hj7Ssd5"
+            },
+            style: {
+                backgroundColor: "#a7feeb"
             }
         },
         {
@@ -106,6 +109,22 @@ function _getDefaultNotes() {
             },
             style: {
                 backgroundColor: "#fdcfe8"
+            }
+        },
+        {
+            id: utilService.makeId(),
+            type: "note-todos",
+            info: {
+                title: "Don't forget to:",
+                todos: [
+                    { txt: "Breath", isDone: false },
+                    { txt: "Smile", isDone: false },
+                    { txt: "Relax", isDone: false },
+                    { txt: "Enjoy", isDone: false },
+                ]
+            },
+            style: {
+                backgroundColor: "#d7aefb"
             }
         },
         {
@@ -133,7 +152,36 @@ function _getDefaultNotes() {
                 ]
             },
             isPinned: true
-        }
+        },
+        {
+            id: utilService.makeId(),
+            type: "note-img",
+            info: {
+                url: "https://louisem.com/wp-content/uploads/2020/04/positive-quote-It-Will-Be-Okay.jpg"
+            }
+        },
+        {
+            id: utilService.makeId(),
+            type: "note-video",
+            info: {
+                url: "https://www.youtube.com/embed/tVqPx5mUj0g",
+                title: "Drink the Sea"
+            },
+            style: {
+                backgroundColor: "#fff475"
+            }
+        },
+        {
+            id: utilService.makeId(),
+            type: "note-txt",
+            info: {
+                title: "I'm a title",
+                txt: "I'm a sample text note"
+            },
+            style: {
+                backgroundColor: "#f28b82"
+            }
+        },
     ]
 }
 

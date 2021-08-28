@@ -3,6 +3,9 @@
     flex-direction: column;
     align-items: center;
     text-align: left;
+    padding: 0 30px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 hr {
@@ -21,7 +24,7 @@ hr {
 }
 
 .about-img {
-    width: 300px;
+    width: 250px;
     border-radius: 50%;
     margin-inline-start: 5px;
     margin-inline-end: 5px;
@@ -35,15 +38,8 @@ hr {
 }
 
 .about-name {
+    font-family: Open-Sans-semibold;
     font-size: 1.3rem;
-}
-
-.about-details {}
-
-.img-container img {
-    border-radius: 40%;
-    height: 100%;
-    object-fit: contain;
 }
 
 @media (min-width: 650px) {

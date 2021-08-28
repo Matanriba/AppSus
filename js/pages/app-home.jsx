@@ -1,17 +1,17 @@
-const {Link} = ReactRouterDOM
+const {Link } = ReactRouterDOM
  
 export function Home() {
     return (
         <section className='app-home'>
             <div className="hero">
-                <a className="hero-link" href="#">Get Started</a>
+                <a className="hero-link" href="#">Welcome</a>
                 <img src="./assets/img/hero.jpg" />
             </div>
             <div id="gallery-container" className="app-cards-container">
                 <div id="feature-header" className="feature-header">
                     <p>What's inside</p>
                 </div>
-                <div className="app-container">
+                <div id="cards" className="app-container">
                     <div className="app-card">
                         <div className="home-img-container">
                             <img src="./assets/img/home-notes.jpg" />

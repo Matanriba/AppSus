@@ -1,17 +1,18 @@
 .hero img {
-    object-fit: none;
-    height: 95vh;
+    object-fit: cover;
+    height: 88vh;
     width: 100%;
 }
 
 .app-home .hero-link {
-    font-size: 5rem;
+    font-size: 4em;
     text-shadow: -2px 4px 6px rgba(39, 39, 39, 0.6);
     color: rgb(88, 88, 88);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: initial;
 }
 
 .gallery-container {
@@ -20,18 +21,17 @@
 }
 
 .feature-header {
-    background-color: rgb(245, 194, 111);
+    background-color: rgb(243, 203, 129);
     font-size: 2.5rem;
     height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin: -5px auto 30px;
 }
 
 .app-container {
     display: flex;
-    /* width: 80vw; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -39,13 +39,12 @@
 }
 
 .app-card {
-    border: 2px solid gray;
+    border: 1px solid rgb(177, 177, 177);
     border-radius: 10px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     width: 80vw;
-    /* height: 60vh; */
     margin-bottom: 30px;
 }
 
@@ -70,9 +69,13 @@
     height: 50px;
     width: 150px;
     border-radius: 5px;
+    background-color: rgb(243, 203, 129);
+    border: none;
+}
+
+.app-card a button:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(216, 131, 61);
-    border: 3px solid rgb(146, 98, 9);
 }
 
 .app-card p {
@@ -80,19 +83,15 @@
 }
 
 @media (min-width: 650px) {
+    .app-home .hero-link {
+        font-size: 6em;
+    }
     .app-container {
         flex-direction: row;
         justify-content: center;
         align-items: unset;
     }
     .app-card {
-        border: 2px solid gray;
-        border-radius: 10px;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
         width: 40vw;
-        /* height: 60vh; */
-        margin-bottom: 30px;
     }
 }
