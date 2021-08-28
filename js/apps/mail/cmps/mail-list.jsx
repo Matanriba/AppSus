@@ -1,3 +1,4 @@
+import { MailCompose } from "./mail-compose.jsx";
 import { MailPreview } from "./mail-preview.jsx";
 
 export function MailList({ mails, onRemoveMail, onToggleIsRead, onStar }) {
@@ -5,6 +6,7 @@ export function MailList({ mails, onRemoveMail, onToggleIsRead, onStar }) {
     return (
         <div className="mail-list">
             {mails.map(mail => <MailPreview onStar={onStar} onToggleIsRead={onToggleIsRead} onRemoveMail={onRemoveMail} key={mail.id} mail={mail} />)}
+            <div className="compose-btn"><MailCompose /></div>
         </div>
     )
 }

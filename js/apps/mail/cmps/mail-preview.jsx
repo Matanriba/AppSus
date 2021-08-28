@@ -8,7 +8,9 @@ export function MailPreview({ mail, onRemoveMail, onToggleIsRead, onStar }) {
     return (
         <article className={`mail-preview ${(mail.isRead ? 'read' : '')}`}>
             <Link className="mail-preview-link" to={`/mail/${mail.status}/${mail.id}`}>
-                <h4>{mail.from.substring(0, 1)}</h4>
+                <div className="from-initials">
+                    <h4>{mail.from.substring(0, 1)}</h4>
+                </div>
                 <ul className="mail-preview-content">
                     <li><p>{mail.from} </p></li>
                     <li><p>{(mail.subject.length > 15) ? mail.subject.substring(0, 15) + '...' : mail.subject}</p></li>

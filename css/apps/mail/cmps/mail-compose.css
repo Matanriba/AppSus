@@ -1,27 +1,27 @@
 .mail-compose {
+    position: fixed;
     display: flex;
     flex-direction: column;
     border: 1px gray solid;
-    max-height: 60vh;
-    max-width: 60vw;
     background-color: whitesmoke;
     position: fixed;
-    bottom: 55px;
-    right: 10px;
-    border-radius: 5px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
 }
 
 .send-btn {
     border: none;
-    padding: 5px;
+    padding: 10px;
     background-color: rgb(243, 203, 129);
     cursor: pointer;
-    border-radius: 0px 0px 10px 10px;
 }
 
 .compose-header {
     justify-content: space-between;
-    padding: 5px;
+    padding: 20px;
 }
 
 .compose-header button {
@@ -33,14 +33,14 @@
 .mail-compose input {
     border: none;
     border-bottom: 1px gray solid;
-    padding: 5px;
+    padding: 20px;
     width: 100%;
 }
 
 .mail-compose textarea {
     border: none;
-    height: 50vh;
-    width: 60vw;
+    height: 73vh;
+    width: 100vw;
     border: none;
 }
 
@@ -49,4 +49,39 @@
     background-color: #fff;
     border-radius: 20px;
     padding: 20px;
+}
+
+@media (min-width: 650px) {
+    .mail-compose {
+        height: unset;
+        width: unset;
+        display: flex;
+        flex-direction: column;
+        border: 1px gray solid;
+        max-height: 60vh;
+        max-width: 60vw;
+        background-color: whitesmoke;
+        position: fixed;
+        top: unset;
+        left: unset;
+        bottom: 55px;
+        right: 10px;
+        border-radius: 5px;
+    }
+    .send-btn {
+        padding: 5px;
+        border-radius: 0px 0px 10px 10px;
+    }
+    .compose-header {
+        padding: 5px;
+    }
+    .mail-compose input {
+        padding: 5px;
+    }
+    .mail-compose textarea {
+        border: none;
+        height: 50vh;
+        width: 60vw;
+        border: none;
+    }
 }

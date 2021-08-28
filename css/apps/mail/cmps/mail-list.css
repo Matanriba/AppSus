@@ -5,3 +5,9 @@
     /* align-items: stretch; */
     padding-top: 20px;
 }
+
+@media (min-width: 650px) {
+    .mail-list .compose-btn {
+        display: none;
+    }
+}

@@ -9,6 +9,13 @@
     font-weight: bold;
 }
 
+.from-initials {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: turquoise;
+}
+
 .mail-preview a {
     width: 100%;
 }
@@ -67,6 +74,12 @@
         font-weight: bold;
         padding-right: 15px;
         box-shadow: 1px -5px 5px -7px rgba(0, 0, 0, 0.75) inset;
+    }
+    .from-initials {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: turquoise;
     }
     .mail-preview a {
         width: 100%;
