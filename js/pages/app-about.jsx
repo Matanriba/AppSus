@@ -19,7 +19,7 @@ export function About() {
                 <div className="about-text">
                     <p className="about-name">Matan Riba</p>
                     <p className="about-details">33 Years old from Ramat Gan. Graduate of an Environmental Science degree from Tel Hai College.
-                                                 Love new challenges and learning and very passionate about design and web development in general.
+                        Love new challenges and learning and very passionate about design and web development in general.
                     </p>
                 </div>
             </div>
