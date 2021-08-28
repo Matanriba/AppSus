@@ -29,8 +29,8 @@ export function NotePreview({ note, onRemoveNote, onUpdateNote, onDupNote }) {
         <div className={`note ${note.type} ${note.isPinned ? "note-pinned" : ""}`}
             style={bgColorObj}>
             <div className="note-content">
-                {note.isPinned && <img className="pinned" src="../../../assets/svg/keep/pinned.svg" />}
-                {note.isPinned && <img className="pinned" src="/assets/svg/keep/pinned.svg" />}
+                {/* {note.isPinned && <img className="pinned" src="../../../assets/svg/keep/pinned.svg" />} */}
+                {note.isPinned && <img className="pinned" src="./assets/svg/keep/pinned.svg" />}
                 {note.info.title && <h3>{note.info.title}</h3>}
                 <DynamicNote note={note} onUpdateNote={onUpdateNote} />
                 {note.info.txt && <p>{note.info.txt}</p>}
