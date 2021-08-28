@@ -9,6 +9,8 @@
 }
 
 .dropdown-content {
+    display: flex;
+    align-items: center;
     visibility: hidden;
     position: absolute;
     right: 0;
@@ -18,9 +20,9 @@
     z-index: 1;
 }
 
-.dropdown-content a:hover {
+/* .dropdown-content a:hover {
     background-color: #f1f1f1;
-}
+} */
 
 .main-menu:hover .dropdown-content {
     visibility: visible;
@@ -39,8 +41,10 @@
     background-size: 3em;
     border: none;
     cursor: pointer;
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    margin: 20px 10px;
 }
 
 .keep-btn {
@@ -49,10 +53,34 @@
 
 .keep-btn:hover {
     background: url(../../assets/svg/menu/keep-selected.svg) center no-repeat;
+    background-size: 40px;
+}
+.mail-btn {
+    background: url(../../assets/svg/menu/email.svg) center no-repeat;
 }
 
+.mail-btn:hover {
+    background: url(../../assets/svg/menu/email-selected.svg) center no-repeat;
+    background-size: 40px;
+}
 
+.books-btn {
+    background: url(../../assets/svg/menu/books.svg) center no-repeat;
+}
 
+.books-btn:hover {
+    background: url(../../assets/svg/menu/books-selected.svg) center no-repeat;
+    background-size: 40px;
+}
+
+.about-btn {
+    background: url(../../assets/svg/menu/about.svg) center no-repeat;
+}
+
+.about-btn:hover {
+    background: url(../../assets/svg/menu/about-selected.svg) center no-repeat;
+    background-size: 40px;
+}
 
 
 /* a {

@@ -8,9 +8,9 @@ export function AppHeader() {
                 <button className="menu-btn"></button>
                 <nav className="dropdown-content">
                     <NavLink to="/keep" ><button className="btn keep-btn"></button></NavLink>
-                    <NavLink to="/mail/inbox" ><button className="btn mail-btn">M</button></NavLink>
-                    <NavLink to="/books"><button className="btn books-btn">B</button></NavLink>
-                    <NavLink to="/about" ><button className="btn about-btn">A</button></NavLink>
+                    <NavLink to="/mail/inbox" ><button className="btn mail-btn"></button></NavLink>
+                    <NavLink to="/books"><button className="btn books-btn"></button></NavLink>
+                    <NavLink to="/about" ><button className="btn about-btn"></button></NavLink>
                 </nav>
             </div>
             {/* <nav>
