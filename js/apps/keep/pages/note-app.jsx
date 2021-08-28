@@ -16,7 +16,6 @@ export class NoteApp extends React.Component {
 
     componentDidMount() {
         this.loadNotes()
-        console.log('mounting')
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -71,7 +70,7 @@ export class NoteApp extends React.Component {
                     <NoteEdit onUpdateNote={this.onUpdateNote} {...props}/>}/>
                 <NoteFilter onSetFilter={this.onSetFilter} />
                 <NoteAdd  className="new-note" onAddNote={this.onAddNote} />
-                <section className="notes-list flex">
+                <section className="notes-list">
                     {notes && !notes.length && <div>No notes to show</div>}
                     {this.pinnedNotes &&
                         <NoteList notes={this.pinnedNotes}

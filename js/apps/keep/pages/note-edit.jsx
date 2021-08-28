@@ -22,7 +22,7 @@ export class NoteEdit extends React.Component {
             case 'note-img':
                 return <input required placeholder="enter image url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
             case 'note-todos':
-                return <TodosEdit onUpdateTodos={this.onUpdateTodos} handleChange={this.handleChangeTodo} todos={note.info.todos} />
+                return <TodosEdit onUpdateTodos={this.onUpdateTodos} handleChange={this.handleChangeTodo} onAddTodo={this.onAddTodo} onRemoveTodo={this.onRemoveTodo} todos={note.info.todos} />
             default:
                 return null
         }
@@ -41,15 +41,21 @@ export class NoteEdit extends React.Component {
         const noteCopy = JSON.parse(JSON.stringify(this.state.note))
         noteCopy.info.todos[idx][field] = value
         this.setState({ note: noteCopy })
-        console.log('noteCopy:', noteCopy)
     }
 
-    onUpdateTodos = (updatedTodos) => {
-        this.setState(prevState => ({ note: { ...prevState.note, info: { ...prevState.note.info, todos: updatedTodos } } }))
+    onAddTodo = () => {
+        const noteCopy = JSON.parse(JSON.stringify(this.state.note))
+        noteCopy.info.todos.push({ txt: '', isDone: false })
+        this.setState({ note: noteCopy })
+    }
+
+    onRemoveTodo = (todoIdx) => {
+        const noteCopy = JSON.parse(JSON.stringify(this.state.note))
+        noteCopy.info.todos.splice(todoIdx, 1)
+        this.setState({ note: noteCopy })
     }
 
     onSubmit = () => {
-        console.log('submit')
         const updatedNote = this.state.note
         this.props.onUpdateNote(updatedNote)
         this.props.history.push('/keep')
@@ -64,12 +70,15 @@ export class NoteEdit extends React.Component {
             <React.Fragment>
                 <div className="screen"></div>
                 <section className="note-edit">
+                    <button className="close-btn" onClick={this.onCancel}></button>
                     <form onSubmit={this.onSubmit}>
-                        <input type="text" name="title" placeholder="Add title" onChange={this.handleChange} value={note.info.title || ''} />
+                        <span>Title:</span><input type="text" name="title" placeholder="Add title" onChange={this.handleChange} value={note.info.title || ''} />
                         <this.DynamicInput note={note} />
                         <textarea rows="3" name="txt" placeholder={`Enter text ...`} onChange={this.handleChange} value={note.info.txt || ''} />
-                        <button>Save</button>
-                        <button onClick={this.onCancel}>Cancel</button>
+                        <div className="control-buttons">
+                            <button>Save</button>
+                            <button onClick={this.onCancel}>Cancel</button>
+                        </div>
                     </form>
                 </section>
             </React.Fragment>

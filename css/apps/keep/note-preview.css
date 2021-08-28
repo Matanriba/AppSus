@@ -3,7 +3,14 @@
     margin: 10px;
 }
 
+/* .notes-list {
+    display: grid;
+    margin: 20px 30px;
+    grid-template-columns: 1fr;
+} */
+
 .notes-list {
+    display: flex;
     margin: 20px 30px;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -84,7 +91,7 @@ iframe {
 }
 
 @media (min-width: 650px) {
-    .note {
+    .note {    
         width: unset;
         min-width: 240px;
         max-width: 350px;
@@ -109,8 +116,9 @@ iframe {
     height: 100px;
     border: 1px solid rgb(223, 223, 223);
     background-color: white;
-    cursor:initial;
+    cursor: initial;
 }
+
 .choose-color.active {
     visibility: visible;
 }
@@ -147,7 +155,6 @@ iframe {
 .choose-color-btn.blue {
     background-color: #aecbfa;
 }
-
 
 .choose-color-btn.pink {
     background-color: #fdcfe8;
