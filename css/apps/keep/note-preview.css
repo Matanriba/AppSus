@@ -1,3 +1,5 @@
+@import url(./icons.css);
+
 .new-note {
     margin: 10px;
 }
@@ -15,40 +17,57 @@
     margin: 5px;
     border: 0.5px solid black;
     border-radius: 7px;
-    padding: 20px;
+    padding: 15px;
     position: relative;
 }
 
-.note-todo.done {
-    text-decoration: line-through;
+.todos {
+    text-align: left;
 }
 
-/* .pinned {
-    position: absolute;
-    right: 0;
-} */
+.todo .done {
+    text-decoration: line-through;
+}
 
 .note h3, .note p {
     margin-top: 0;
 }
 
-.note img {
+.note-img {
     width: 100%;
     object-fit: contain;
 }
 
-.note iframe {
+.note-pinned p, .note-pinned h3, .note-pinned .note-img, .note-pinned iframe {
+    margin-inline-end: 20px;
+}
+
+.pinned {
+    height: 20px;
+    position: absolute;
+    /* left: 0; */
+    right: 5px;
+}
+
+iframe {
     width: 100%;
     height: 200px;
     /* height: 300px; */
 }
 
-.note-controls {
+.note-footer {
+    display: flex;
+    align-items: center;
     padding: 5px 0;
     position: absolute;
     bottom: 0;
 }
 
-.note-controls img {
-    height: 20px;
+.note-footer .note-type {
+    height: 18px;
+    margin-inline-end: 20px;
+}
+
+.note-controls {
+    display: flex;
 }
