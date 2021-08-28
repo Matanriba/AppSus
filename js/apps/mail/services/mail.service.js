@@ -1,6 +1,5 @@
 import { utilService } from "../../../services/util.service.js";
 import { storageService } from "../../../services/storage.service.js";
-import { eventBusService } from "../../../services/event-bus-service.js";
 
 export const mailService = {
     query,
@@ -22,9 +21,9 @@ const loggedinUser = {
 
 let gMails = storageService.loadFromStorage(KEY) || [{
         id: 'e101',
-        from: 'Morty Smith',
-        subject: 'WTF',
-        body: 'Where did you go?! you left me in another dimension! What am I supposed to do now?? Call me back!!',
+        from: 'Dominos Pizza',
+        subject: 'Order Status',
+        body: 'Your order is ready and will be delivered to you shortley!',
         isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
@@ -34,7 +33,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
     },
     {
         id: 'e102',
-        from: loggedinUser.fullname,
+        from: 'Bird Person',
         subject: 'Yo!',
         body: 'Would love to catch up sometimes',
         isRead: false,
@@ -47,18 +46,18 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         id: 'e103',
         from: 'Rick Sanchez',
         subject: 'Wubba Lubba Dub Dub!',
-        body: 'Would love to catch up sometimes',
+        body: 'This is my new catchphrase!! check it out *burp*',
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: ['trash'],
-        isStarred: false
+        status: ['trash', 'starred'],
+        isStarred: true
     },
     {
         id: 'e104',
         from: 'Beth Smith',
         subject: 'Holy Crap!',
-        body: 'Would love to catch up sometimes',
+        body: 'What did you do to my house??! we need to have a serious talk about this..',
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
@@ -67,9 +66,9 @@ let gMails = storageService.loadFromStorage(KEY) || [{
     },
     {
         id: 'e105',
-        from: 'Beth Smithqwe',
-        subject: 'Holy Crap!',
-        body: 'Would love to catchasdasd up sometimes',
+        from: 'Netflix',
+        subject: 'Enjoying our content?',
+        body: 'Log in to your account soon to get new recommendations and add more shows to your playlist',
         isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
@@ -78,9 +77,9 @@ let gMails = storageService.loadFromStorage(KEY) || [{
     },
     {
         id: 'e106',
-        from: 'Beth Smithdsa',
-        subject: 'Holy Crap!',
-        body: 'Would love tfsdfsdfo catch up sometimes',
+        from: 'Brian from Jofibo',
+        subject: 'Fresh new templates for your job search 📄‏‏',
+        body: 'An eye for detail can mean many things. But when it comes to your job search documents, nothing beats a matching professional look.',
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
@@ -89,14 +88,15 @@ let gMails = storageService.loadFromStorage(KEY) || [{
     },
     {
         id: 'e107',
-        from: 'Beth Smithasd',
-        subject: 'Holy Crap!',
-        body: 'Would losdfgsdfgve to catch up sometimes',
+        from: 'Jerry Smith',
+        subject: 'New job offer',
+        body: `Hi, I noticed that you are starting to learn new abilities and skills,
+                 and would like to offer you to come over for a job interview`,
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: ['inbox', 'starred'],
-        isStarred: true
+        status: ['inbox'],
+        isStarred: false
     }
 ]
 
