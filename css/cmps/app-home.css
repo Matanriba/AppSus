@@ -1,20 +1,98 @@
-.app-home {
-    height: 600px;
-}
-
-.app-home img {
+.hero img {
     object-fit: none;
-    height: 100%;
+    height: 95vh;
     width: 100%;
 }
 
-.app-home h1 {
-    /* font-family: Allison; */
-    font-size: 6rem;
+.app-home .hero-link {
+    font-size: 5rem;
     text-shadow: -2px 4px 6px rgba(39, 39, 39, 0.6);
-    color: rgb(71, 71, 71);
+    color: rgb(88, 88, 88);
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-header {
+    background-color: rgb(245, 194, 111);
+    font-size: 2.5rem;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.app-container {
+    display: flex;
+    /* width: 80vw; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.app-card {
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    /* height: 60vh; */
+    margin-bottom: 30px;
+}
+
+.home-img-container {
+    width: 40vw;
+    align-self: center;
+}
+
+.home-img-container img {
+    width: 80%;
+    object-fit: cover;
+}
+
+.app-card a {
+    align-self: center;
+}
+
+.app-card a button {
+    font-size: 1.5em;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(216, 131, 61);
+    border: 3px solid rgb(146, 98, 9);
+}
+
+.app-card p {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 650px) {
+    .app-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: unset;
+    }
+    .app-card {
+        border: 2px solid gray;
+        border-radius: 10px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        width: 40vw;
+        /* height: 60vh; */
+        margin-bottom: 30px;
+    }
 }

@@ -34,16 +34,16 @@ export class MailDetails extends React.Component {
             <article className="mail-details">
                 <div className="details-btns flex">
                     <div className="left-btn">
-                        <button className="back-btn" onClick={this.onBack}><img className="trash-img" src="../../assets/svg/mail/back-arrow.svg" /></button>
+                        <button className="back-btn" onClick={this.onBack}><img className="trash-img" src="././assets/svg/mail/back-arrow.svg" /></button>
                     </div>
                     <div className="right-btns">
                         <button onClick={() => this.props.onStar(mail.id)} title="Mark As Starred">
-                            <img className="star-img" src={(mail.isStarred) ? '../../assets/svg/star-active.svg' : '../../assets/svg/star-disabled.svg'} />
+                            <img className="star-img" src={(mail.isStarred) ? '././assets/svg/star-active.svg' : '././assets/svg/star-disabled.svg'} />
                         </button>
-                        <button title="Mark As Unread" onClick={() => this.props.onToggleIsRead(mail.id)}><img className="envelope-img" src={(mail.isRead) ? '../../assets/svg/mail/envelope-opened.svg' : '../../assets/svg/mail/envelope-closed.svg'} /></button>
-                        <button title="Remove Message" onClick={() => this.props.onRemoveMail(mail.id)}><img className="trash-img" src="../../assets/svg/mail/trash.svg" /></button>
+                        <button title="Mark As Unread" onClick={() => this.props.onToggleIsRead(mail.id)}><img className="envelope-img" src={(mail.isRead) ? '././assets/svg/mail/envelope-opened.svg' : '././assets/svg/mail/envelope-closed.svg'} /></button>
+                        <button title="Remove Message" onClick={() => this.props.onRemoveMail(mail.id)}><img className="trash-img" src="././assets/svg/mail/trash.svg" /></button>
                         {mail.status.includes('trash') &&
-                            <button className="to-inbox-btn" title="Send Back to Inbox" onClick={() => this.props.onUnRemove(mail.id)}><img className="trash-img" src="../../assets/svg/mail/envelope-arrow.svg" /></button>
+                            <button className="to-inbox-btn" title="Send Back to Inbox" onClick={() => this.props.onUnRemove(mail.id)}><img className="trash-img" src="././assets/svg/mail/envelope-arrow.svg" /></button>
                         }
                     </div>
                 </div>

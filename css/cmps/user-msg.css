@@ -1,0 +1,18 @@
+.user-msg {
+    border: 1px solid gray;
+    border-radius: 10px;
+    position: fixed;
+    padding: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+
+.user-msg.danger {
+    color: rgb(68, 68, 67);
+    background-color: rgb(250, 154, 154);
+}
+
+.user-msg.success {
+    color: rgb(68, 68, 67);
+    background-color: rgb(243, 203, 129);
+}

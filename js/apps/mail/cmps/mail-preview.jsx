@@ -19,9 +19,9 @@ export function MailPreview({ mail, onRemoveMail, onToggleIsRead, onStar }) {
             </Link>
             <div className="preview-btns">
                 <p>{utilService.timestampConverter(mail.sentAt)}</p>
-                <button className="remove-mail-btn" onClick={() => onRemoveMail(mail.id)}><img className="trash-img" src="../../assets/svg/mail/trash.svg" /></button>
-                <button className="read-mail-btn" onClick={() => onToggleIsRead(mail.id)}><img className="envelope-img" src={(mail.isRead) ? '../../assets/svg/mail/envelope-opened.svg' : '../../assets/svg/mail/envelope-closed.svg'} /></button>
-                <button className="star-mail-btn" onClick={() => onStar(mail.id)}><img className="star-img" src={(mail.isStarred) ? '../../assets/svg/star-active.svg' : '../../assets/svg/star-disabled.svg'} /></button>
+                <button className="star-mail-btn" onClick={() => onStar(mail.id)}><img className="star-img" src={(mail.isStarred) ? '././assets/svg/star-active.svg' : '././assets/svg/star-disabled.svg'} /></button>
+                <button className="read-mail-btn" onClick={() => onToggleIsRead(mail.id)}><img className="envelope-img" src={(mail.isRead) ? '././assets/svg/mail/envelope-opened.svg' : '././assets/svg/mail/envelope-closed.svg'} /></button>
+                <button className="remove-mail-btn" onClick={() => onRemoveMail(mail.id)}><img className="trash-img" src="././assets/svg/mail/trash.svg" /></button>
             </div>
         </article>
     )

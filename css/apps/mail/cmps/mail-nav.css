@@ -1,13 +1,18 @@
 .side-bar {
-    height: 70vh;
-    width: 50%;
+    /* height: 100vh; */
+    /* width: 50%; */
     position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     transform: translate(-150%);
     box-shadow: 36px 6px 89px 12px rgba(0, 0, 0, 0.75);
+    transition: transform .6s;
 }
 
 .side-bar.nav-menu-open {
-    transform: translate(0);
+    transform: translate(-10%);
 }
 
 .side-bar.side-bar.nav-menu-open .compose-btn {
@@ -18,7 +23,9 @@
     height: 100%;
     padding: 0;
     list-style-type: none;
-    background-color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgba(233, 192, 116, 0.952);
     gap: 10px;
 }
 
@@ -85,6 +92,7 @@
         list-style-type: none;
         background-color: whitesmoke;
         width: 15vw;
+        font-size: 1.2rem;
     }
     .mail-nav .back-button {
         align-self: center;

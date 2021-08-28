@@ -195,7 +195,8 @@ a {
 
 /* USER MSG  */
 
-.user-msg {
+
+/* .user-msg {
     border-radius: 15px;
     background-color: rgb(255, 250, 250);
     position: fixed;
@@ -212,4 +213,4 @@ a {
 .user-msg.success {
     color: rgb(178, 250, 154);
     border: 3px rgb(178, 250, 154) solid;
-}
+} */

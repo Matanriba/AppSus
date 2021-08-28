@@ -20,6 +20,13 @@
     border-radius: 5px;
 }
 
+.hamburger-btn {
+    margin-inline-end: 30px;
+    width: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media (min-width: 650px) {
     .mail-search input {
         background-color: rgb(243, 243, 243);
