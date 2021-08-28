@@ -10,6 +10,7 @@ import { AppFooter } from "./cmps/app-foorer.jsx"
 import { BookApp } from "./apps/books/pages/BookApp.jsx"
 import { BookDetails } from "./apps/books/pages/BookDetails.jsx"
 import { ReviewAdd } from "./apps/books/cmps/ReviewAdd.jsx"
+import { UserMsg } from "./cmps/user-msg.jsx"
 
 export function App() {
     return (
@@ -26,7 +27,7 @@ export function App() {
                     <Route exact path="/" component={Home} />
                 </Switch>
             </main>
-            {/* <AppFooter /> */}
+            <UserMsg/>
         </Router>
     )
 }

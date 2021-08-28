@@ -1,3 +1,4 @@
+import { eventBusService } from "../../../services/event-bus-service.js";
 import { mailService } from "../services/mail.service.js"
 
 export class MailCompose extends React.Component {
@@ -24,6 +25,7 @@ export class MailCompose extends React.Component {
     onAddMail = (ev) => {
         ev.preventDefault()
         mailService.addMail(this.state.composeData)
+        eventBusService.emit('user-msg', { txt: 'Message Sent!', type: 'success' })
         this.onToggleActive()
     }
 

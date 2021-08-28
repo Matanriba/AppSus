@@ -1,5 +1,6 @@
 import { utilService } from "../../../services/util.service.js";
 import { storageService } from "../../../services/storage.service.js";
+import { eventBusService } from "../../../services/event-bus-service.js";
 
 export const mailService = {
     query,

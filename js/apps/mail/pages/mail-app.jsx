@@ -48,6 +48,7 @@ export class MailApp extends React.Component {
 
     onRemoveMail = (mailId) => {
         mailService.removeMail(mailId)
+        eventBusService.emit('user-msg', { txt: 'Message Removed', type: 'danger' })
         this.loadMails()
     }
 
@@ -58,6 +59,7 @@ export class MailApp extends React.Component {
 
     onUnRemove = (mailId) => {
         mailService.sendMailToInbox(mailId)
+        eventBusService.emit('user-msg', { txt: 'Message moved back to Inbox', type: 'success' })
         this.loadMails()
     }
 
