@@ -1,7 +1,6 @@
 @import url(./icons.css);
-
 .new-note {
-    width: 350px;
+    width: 80vw;
     margin: 0 auto;
 }
 
@@ -44,5 +43,11 @@
 }
 
 .control-buttons button:hover {
-    background-color: rgb(229, 226, 226);
+    background-color: rgb(243, 203, 129);
+}
+
+@media (min-width: 650px) {
+    .new-note {
+        width: 450px;
+    }
 }

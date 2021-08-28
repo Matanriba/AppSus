@@ -1,5 +1,5 @@
 import { utilService } from '../../../services/util.service.js'
-// import { storageService } from '../../../services/storage.service.js'
+import { storageService } from '../../../services/storage.service.js'
 
 export const noteService = {
     query,
@@ -10,9 +10,8 @@ export const noteService = {
 }
 
 const KEY_DB = 'notesDB'
-const gNotes = _getDefaultNotes()
-// const gNotes = storageService.loadFromStorage(KEY_DB) || _getDefaultNotes()
-// _saveNotesToStorage()
+const gNotes = storageService.loadFromStorage(KEY_DB) || _getDefaultNotes()
+_saveNotesToStorage()
 
 function query(filterBy = {}) {
     const { type } = filterBy
@@ -33,7 +32,7 @@ function query(filterBy = {}) {
 
 function addNote(note) {
     gNotes.unshift(_createNote(note))
-    // _saveNotesToStorage()
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
@@ -42,21 +41,21 @@ function dupNote(noteId) {
     const note = JSON.parse(JSON.stringify(_getNoteById(noteId)))
     note.id = utilService.makeId()
     gNotes.splice(noteIdx, 0, note)
-    // _saveNotesToStorage()
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
 function removeNote(noteId) {
     const noteIdx = _getNoteIdx(noteId)
     gNotes.splice(noteIdx, 1)
-    // _saveNotesToStorage()
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
 function updateNote(updatedNote) {
     const noteIdx = _getNoteIdx(updatedNote.id)
     gNotes[noteIdx] = updatedNote
-    // _saveNotesToStorage()
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
@@ -89,9 +88,7 @@ function _getDefaultNotes() {
         {
             id: utilService.makeId(),
             type: "note-txt",
-            // isPinned: true,
             info: {
-                // title: "FS",
                 txt: "Fullstack Me Baby!"
             }
         },
@@ -100,11 +97,10 @@ function _getDefaultNotes() {
             type: "note-img",
             info: {
                 url: "https://cutt.ly/fWrCAJz",
-                // title: "Bobi",
                 txt: "OMG Bobi 😍"
             },
             style: {
-                backgroundColor: "#00d"
+                backgroundColor: "#fdcfe8"
             }
         },
         {
@@ -116,17 +112,19 @@ function _getDefaultNotes() {
                 txt: "LOLOLOL"
             },
             style: {
-                backgroundColor: "#00d"
+                backgroundColor: "#ccff90"
             }
         },
         {
             id: utilService.makeId(),
             type: "note-todos",
             info: {
-                title: "Get my stuff together",
+                title: "Sprint2",
                 todos: [
-                    { txt: "Driving liscence", isDone: false },
-                    { txt: "Coding power", isDone: false }
+                    { txt: "Roll on floor", isDone: true },
+                    { txt: "Cry", isDone: true },
+                    { txt: 'Get my "stuff" together', isDone: false },
+                    { txt: "Code", isDone: false },
                 ]
             },
             isPinned: true
@@ -134,6 +132,6 @@ function _getDefaultNotes() {
     ]
 }
 
-// function _saveNotesToStorage() {
-//     storageService.saveToStorage(KEY_DB, gNotes)
-// }
+function _saveNotesToStorage() {
+    storageService.saveToStorage(KEY_DB, gNotes)
+}

@@ -14,16 +14,6 @@ export function NoteTodo({ note, onUpdateNote }) {
                     </div>
                 )
             })}
-
-
-
-            {/* <ul>
-                {note.info.todos.map((todo, idx) => <li key={`${note.id}-${idx + 1}`} className={`note-todo ${todo.isDone && 'done'}`} onClick={() => {
-                    toggleIsDone(idx)
-                }}>
-                    {todo.txt}
-                </li>)}
-            </ul> */}
         </div>
     )
 }

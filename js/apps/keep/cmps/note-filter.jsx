@@ -27,7 +27,6 @@ export class NoteFilter extends React.Component {
         const { filterBy } = this.state
         return (
             <div>
-                <input className="note-search" type="text" name="search" placeholder="Search notes..." value={filterBy.search} onChange={this.handleChange} />
                 <div className="note-filter">
                     <span>Filter By:</span>
                     <div className="note-types">
@@ -45,6 +44,7 @@ export class NoteFilter extends React.Component {
                         </button>
                     </div>
                 </div>
+                <input className="note-search" type="text" name="search" placeholder="Search notes..." value={filterBy.search} onChange={this.handleChange} />
             </div>
         )
     }
