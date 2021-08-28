@@ -4,7 +4,7 @@ export function About() {
             <h1>Meet The Team!</h1>
             <hr />
             <div className="about-card">
-                <img className="about-img" src="../../assets/img/matan.jpg" alt="" />
+                <img className="about-img" src="././assets/img/matan.jpg" alt="" />
                 <div className="about-text">
                     <p className="about-name">Matan Riba</p>
                     <p className="about-details">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -23,7 +23,7 @@ export function About() {
                         Pariatur saepe officia odit accusamus rerum dolorum.
                     </p>
                 </div>
-                <img className="about-img" src="../../assets/img/amitee.jpg" alt="" />
+                <img className="about-img" src="././assets/img/amitee.jpg" alt="" />
             </div>
         </section>
     )
