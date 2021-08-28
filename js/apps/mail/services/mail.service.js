@@ -23,12 +23,12 @@ const loggedinUser = {
 let gMails = storageService.loadFromStorage(KEY) || [{
         id: 'e101',
         from: 'Morty Smith',
-        subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        subject: 'WTF',
+        body: 'Where did you go?! you left me in another dimension! What am I supposed to do now?? Call me back!!',
         isRead: true,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: ['sent'],
+        status: ['inbox'],
         isStarred: false
 
     },
@@ -40,7 +40,7 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: ['inbox'],
+        status: ['sent'],
         isStarred: false
     },
     {
@@ -95,8 +95,8 @@ let gMails = storageService.loadFromStorage(KEY) || [{
         isRead: false,
         sentAt: Date.now(),
         to: 'momo@momo.com',
-        status: ['inbox'],
-        isStarred: false
+        status: ['inbox', 'starred'],
+        isStarred: true
     }
 ]
 
