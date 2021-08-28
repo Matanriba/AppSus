@@ -31,16 +31,16 @@ export class NoteFilter extends React.Component {
                     <span>Filter By:</span>
                     <div className="note-types">
                         <button className={`note-type-btn ${(filterBy.type === 'note-txt') ? "selected" : ""}`} onClick={() => this.changeType('note-txt')}>
-                            <img className="icon" src="../../../../assets/svg/keep/note-txt.svg" />
+                            <img className="icon" src="./assets/svg/keep/note-txt.svg" />
                         </button>
                         <button className={`note-type-btn ${(filterBy.type === 'note-todos') ? "selected" : ""}`} onClick={() => this.changeType('note-todos')}>
-                            <img className="icon" src="../../../../assets/svg/keep/note-todos.svg" />
+                            <img className="icon" src="./assets/svg/keep/note-todos.svg" />
                         </button>
                         <button className={`note-type-btn ${(filterBy.type === 'note-img') ? "selected" : ""}`} onClick={() => this.changeType('note-img')}>
-                            <img className="icon" src="../../../../assets/svg/keep/note-img.svg" />
+                            <img className="icon" src="./assets/svg/keep/note-img.svg" />
                         </button>
                         <button className={`note-type-btn ${(filterBy.type === 'note-video') ? "selected" : ""}`} onClick={() => this.changeType('note-video')}>
-                            <img className="icon" src="../../../../assets/svg/keep/note-video.svg" />
+                            <img className="icon" src="./assets/svg/keep/note-video.svg" />
                         </button>
                     </div>
                 </div>

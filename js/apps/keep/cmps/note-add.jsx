@@ -89,16 +89,16 @@ export class NoteAdd extends React.Component {
                         <div className="new-note-controls">
                             <div className="choose-type">
                                 <span className="icon-container" title="text" onClick={(ev) => this.onChangeNoteType(ev, 'note-txt')}>
-                                    <img className="icon" src="../../../../assets/svg/keep/note-txt.svg" />
+                                    <img className="icon" src="./assets/svg/keep/note-txt.svg" />
                                 </span>
                                 <span className="icon-container" title="checklist" onClick={(ev) => this.onChangeNoteType(ev, 'note-todos')}>
-                                    <img className="icon" src="../../../../assets/svg/keep/note-todos.svg" />
+                                    <img className="icon" src="./assets/svg/keep/note-todos.svg" />
                                 </span>
                                 <span className="icon-container" title="image" onClick={(ev) => this.onChangeNoteType(ev, 'note-img')}>
-                                    <img className="icon" src="../../../../assets/svg/keep/note-img.svg" />
+                                    <img className="icon" src="./assets/svg/keep/note-img.svg" />
                                 </span>
                                 <span className="icon-container" title="video" onClick={(ev) => this.onChangeNoteType(ev, 'note-video')}>
-                                    <img className="icon" src="../../../../assets/svg/keep/note-video.svg" />
+                                    <img className="icon" src="./assets/svg/keep/note-video.svg" />
                                 </span>
                             </div>
                             <div className="control-buttons">
