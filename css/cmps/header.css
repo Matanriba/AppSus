@@ -1,5 +1,7 @@
 .header-container {
     background-color: rgb(243, 203, 129);
+    position: relative;
+    z-index: 3;
 }
 
 a {

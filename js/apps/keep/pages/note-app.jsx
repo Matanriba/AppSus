@@ -2,7 +2,9 @@ import { NoteList } from '../cmps/note-list.jsx'
 import { NoteAdd } from '../cmps/note-add.jsx';
 import { noteService } from '../services/note.service.js'
 import { NoteFilter } from '../cmps/note-filter.jsx';
+import {NoteEdit} from '../pages/note-edit.jsx'
 
+const {Route} = ReactRouterDOM
 export class NoteApp extends React.Component {
     state = {
         notes: null,
@@ -14,6 +16,7 @@ export class NoteApp extends React.Component {
 
     componentDidMount() {
         this.loadNotes()
+        console.log('mounting')
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -60,12 +63,14 @@ export class NoteApp extends React.Component {
     }
 
     render() {
-        const { filterBy, notes } = this.state
+        const { notes, isShowColors } = this.state
         if (!notes) return <div>Loading...</div>
         return (
             <section>
+                <Route path="/keep/edit/:noteId" render={(props)=> 
+                    <NoteEdit onUpdateNote={this.onUpdateNote} {...props}/>}/>
                 <NoteFilter onSetFilter={this.onSetFilter} />
-                <NoteAdd className="new-note" onAddNote={this.onAddNote} />
+                <NoteAdd  className="new-note" onAddNote={this.onAddNote} />
                 <section className="notes-list flex">
                     {notes && !notes.length && <div>No notes to show</div>}
                     {this.pinnedNotes &&

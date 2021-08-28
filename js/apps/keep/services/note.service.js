@@ -6,6 +6,7 @@ export const noteService = {
     addNote,
     removeNote,
     updateNote,
+    getById,
     dupNote
 }
 
@@ -59,8 +60,12 @@ function updateNote(updatedNote) {
     return Promise.resolve()
 }
 
+function getById(noteId) {
+    const note = gNotes.find(currNote => noteId === currNote.id)
+    return Promise.resolve(note)
+}
 function _getNoteById(noteId) {
-    return gNotes.filter(note => note.id === noteId)[0]
+    return gNotes.find(note => note.id === noteId)
 }
 
 function _getNoteIdx(noteId) {
@@ -119,7 +124,7 @@ function _getDefaultNotes() {
             id: utilService.makeId(),
             type: "note-todos",
             info: {
-                title: "Sprint2",
+                title: "Sprint3",
                 todos: [
                     { txt: "Roll on floor", isDone: true },
                     { txt: "Cry", isDone: true },

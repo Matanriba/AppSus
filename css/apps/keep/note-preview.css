@@ -37,13 +37,8 @@
 }
 
 .note-content h3, .note-content p {
-    margin-top: 0;
+    margin: 0 auto 10px;
 }
-
-
-/* .note p {
-    margin-bottom: 30px;
-} */
 
 .note-img {
     width: 100%;
@@ -97,4 +92,71 @@ iframe {
     iframe {
         height: 160px;
     }
+}
+
+/* CHOOSE NOTE COLOR */
+
+.choose-color {
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -100px;
+    right: 20px;
+    width: 150px;
+    height: 100px;
+    border: 1px solid rgb(223, 223, 223);
+    background-color: white;
+    cursor:initial;
+}
+.choose-color.active {
+    visibility: visible;
+}
+
+.choose-color-btn {
+    margin: 4px;
+    height: 24px;
+    width: 24px;
+    border: 1.8px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.choose-color-btn:hover {
+    border: 1.8px solid rgb(121, 119, 119) !important;
+}
+
+.choose-color-btn.green {
+    background-color: #ccff90;
+}
+
+.choose-color-btn.red {
+    background-color: #f28b82;
+}
+
+.choose-color-btn.yellow {
+    background-color: #fff475;
+}
+
+.choose-color-btn.teal {
+    background-color: #a7ffeb;
+}
+
+.choose-color-btn.blue {
+    background-color: #aecbfa;
+}
+
+
+.choose-color-btn.pink {
+    background-color: #fdcfe8;
+}
+
+.choose-color-btn.purple {
+    background-color: #d7aefb;
+}
+
+.choose-color-btn.white {
+    border: 0.5px solid rgb(121, 119, 119);
 }

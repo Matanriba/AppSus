@@ -1,3 +1,5 @@
+import { utilService } from '../../../services/util.service.js'
+
 export function NoteTodo({ note, onUpdateNote }) {
     const toggleIsDone = (todoIdx) => {
         const noteCopy = { ...note }
@@ -8,9 +10,9 @@ export function NoteTodo({ note, onUpdateNote }) {
         <div className="todos">
             {note.info.todos.map((todo, idx) => {
                 return (
-                    <div className="todo">
-                        <input type="checkbox" key={`${note.id}-${idx + 1}`} id={`${note.id}-${idx + 1}`} checked={todo.isDone && 'checked'} onChange={() => { toggleIsDone(idx) }} />
-                        <label key={idx + 1} htmlFor={`${note.id}-${idx + 1}`} className={todo.isDone ? 'done' : ''}>{todo.txt}</label>
+                    <div className="todo" key={utilService.makeId()} >
+                        <input type="checkbox" id={`${note.id}-${idx + 1}`} checked={todo.isDone && 'checked'} onChange={() => { toggleIsDone(idx) }} />
+                        <label htmlFor={`${note.id}-${idx + 1}`} className={todo.isDone ? 'done' : ''}>{todo.txt}</label>
                     </div>
                 )
             })}
