@@ -102,7 +102,7 @@ export class NoteAdd extends React.Component {
                                 </span>
                             </div>
                             <div className="control-buttons">
-                                <button>Keep note</button>
+                                <button>Keep</button>
                                 <button onClick={this.onToggleFormClicked} >Close</button>
                             </div>
                         </div>

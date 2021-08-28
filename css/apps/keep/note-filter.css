@@ -1,5 +1,11 @@
+.note-search {
+    width: 80vw;
+    margin-bottom: 25px;
+}
+
 .note-filter{
-    margin: 10px auto;
+    margin: 25px auto 15px;
+    /* margin: 10px auto; */
     display: flex;
     align-items: center;
     justify-content: center
@@ -29,9 +35,15 @@
 }
 
 .note-type-btn:hover {
-    background-color: orange;
+    background-color: rgb(243, 203, 129);
 }
 
 .note-type-btn.selected {
-    background-color: orange;
+    background-color: rgb(255, 231, 152);
+}
+
+@media (min-width: 650px) {
+    .note-search {
+        width: 450px;
+    }
 }
