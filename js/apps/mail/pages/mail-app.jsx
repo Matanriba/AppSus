@@ -16,7 +16,8 @@ export class MailApp extends React.Component {
             txt: '',
             isRead: null,
             isStarred: null
-        }
+        },
+        isNavMenuOpen: false
     }
 
     componentDidMount() {
@@ -65,16 +66,20 @@ export class MailApp extends React.Component {
         this.loadMails()
     }
 
+    onOpenMenu = () => {
+        this.setState((prevState) => ({ isNavMenuOpen: !prevState.isNavMenuOpen }));
+    }
+
     render() {
-        const { mails } = this.state
+        const { mails, isNavMenuOpen } = this.state
         const { location } = this.props
         return (
             <section className="mail-app-container flex column">
                 <div className="mail-app mail-search">
-                    <MailSearch onSetSearch={this.onSetSearch} />
+                    <MailSearch onOpenMenu={this.onOpenMenu} onSetSearch={this.onSetSearch} />
                 </div>
                 <div className="mail-app-main flex">
-                    <MailNav setCriteriaStatus={this.setCriteriaStatus} />
+                    <MailNav isNavMenuOpen={isNavMenuOpen} onOpenMenu={this.onOpenMenu} setCriteriaStatus={this.setCriteriaStatus} />
                     <Switch>
                         <Route path="/mail/:status/:mailId" render={(props) => <MailDetails onStar={this.onStar} onUnRemove={this.onUnRemove} onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} {...props} />} />
                         <Route path={`${location.pathname}`} render={() => <MailList onStar={this.onStar} onToggleIsRead={this.onToggleIsRead} onRemoveMail={this.onRemoveMail} mails={mails} />} />
