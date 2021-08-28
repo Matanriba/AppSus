@@ -43,15 +43,13 @@
     height: 100%;
     width: 100%;
     flex-grow: 1;
-}
-
-.mail-nav-links>li:hover {
-    cursor: pointer;
-    background-color: rgb(243, 203, 129);
+    border-radius: 10px 49px 51px 10px;
 }
 
 .mail-nav-links .back-button {
     align-self: center;
+    cursor: pointer;
+    border: none;
 }
 
 @media (min-width: 650px) {
@@ -100,5 +98,8 @@
         gap: 10px;
         padding-inline-start: unset;
         padding-inline-start: 30px;
+    }
+    .mail-nav-links>li:hover {
+        background-color: rgb(243, 203, 129);
     }
 }
