@@ -3,11 +3,63 @@
     position: relative;
 }
 
-a {
+.main-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.main-menu:hover .dropdown-content {
+    visibility: visible;
+}
+
+.menu-btn {
+    background: url(../../assets/svg/menu/menu.svg) center no-repeat;
+    background-size: 3em;
+    border: none;
+    cursor: pointer;
+    height: 70px;
+    width: 70px;
+}
+
+.dropdown-content .btn {
+    background-size: 3em;
+    border: none;
+    cursor: pointer;
+    height: 70px;
+    width: 70px;
+}
+
+.keep-btn {
+    background: url(../../assets/svg/menu/keep.svg) center no-repeat;
+}
+
+.keep-btn:hover {
+    background: url(../../assets/svg/menu/keep-selected.svg) center no-repeat;
+}
+
+
+
+
+
+/* a {
     text-decoration: none;
     color: inherit;
 }
 
 nav a:not(:last-child) {
     margin-inline-end: 20px;
-}
+} */

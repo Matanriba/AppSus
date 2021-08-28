@@ -18,9 +18,15 @@ export class NoteEdit extends React.Component {
     DynamicInput = ({ note }) => {
         switch (note.type) {
             case 'note-video':
-                return <input required placeholder="enter video url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
+                return <div>
+                    <span>URL:</span>
+                    <input required placeholder="enter video url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
+                </div>
             case 'note-img':
-                return <input required placeholder="enter image url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
+                return <div>
+                    <span>URL:</span>
+                    <input required placeholder="enter image url" name="url" onChange={this.handleChange} value={this.state.note.info.url || ''} />
+                </div>
             case 'note-todos':
                 return <TodosEdit onUpdateTodos={this.onUpdateTodos} handleChange={this.handleChangeTodo} onAddTodo={this.onAddTodo} onRemoveTodo={this.onRemoveTodo} todos={note.info.todos} />
             default:
